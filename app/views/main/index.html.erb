@@ -1,0 +1,318 @@
+ <!-- Features Section -->
+ <!--    <section id="features-flat" class="bg-light" style="visibility: hidden;">
+        <div class="container">
+             <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h2 class="section-heading">الأبواب</h2>
+                    <br/>
+                    <br/>
+                </div>
+            </div>
+            <div class="row">
+              <%Category.all.each do |cat|%>
+              <%if cat.parent_id==nil%>
+                  <div class="col-md-3 col-sm-6">
+                      <div class="panel" style="background-color:<%=cat.color%>;">
+                          <div class="panel-body text-center">
+                              <p class="text-uppercase mar-btm text-sm"><%=cat.name%></p>
+                                <i class="fa fa-users fa-5x "></i>
+                                <br><br>
+                                <a href="<%=category_index_path(:id=>cat.id)%>" class="btn btn-md btn-secondary">المزيد</a>
+                          </div>
+                      </div>
+                  </div>
+                  <%end%>
+              <%end%>
+            </div>           
+        </div>
+    </section>
+ -->
+
+
+<section class="camera_container">
+        <div id="camera" class="camera_wrap center bg-general" style="display: block; height: 450px;">
+          <div class="camera_fakehover">
+
+            <div class="camera_target_content">
+              <div class="cameraContents">
+                <div class="cameraContent">
+                  <div class="camera_caption" style="visibility: visible; opacity: 1;">
+                    <div>
+
+              <div class="bg_sec3" style="visibility: hidden;">
+                <h2>
+                  لماذا هدهدة؟
+                </h2>
+                <p>
+                  شركة البحث الشهيرة جوجل قامت مؤخراً بخطوة استثنائية، بإضافة خدمة الخريطة الشمسية، التي تحسب أشعة الشمس التي...
+                  شركة البحث الشهيرة جوجل قامت مؤخراً بخطوة استثنائية، بإضافة خدمة الخريطة الشمسية، التي تحسب أشعة الشمس التي...
+                  شركة البحث الشهيرة جوجل قامت مؤخراً بخطوة استثنائية، بإضافة خدمة الخريطة الشمسية، التي تحسب أشعة الشمس التي..
+                </p>
+              </div>
+              
+      
+            </div></div>
+          <div class="col-sm-6 col-md-6 pull-right" id="family">
+               <!--  <img class="img-responsive"src="/assets/banner-1.png" style="position: relative;top: 13.4em;"> -->
+      <img src="/assets/logo.png" width="370" height="370" style="visibility: hidden;" id="logo" >
+                </div>
+          </div></div></div></div></div>
+
+    </section>
+
+
+<section id="services" style="visibility: hidden;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h2 class="section-heading">آخر المقالات</h2>
+                    <br/>
+                    <br/>
+            </div>
+        </div>
+        <div class="row text-center">
+        <div class="col-sm-6 col-md-3">
+          <div class="thumbnail pad-0" style="background-color:<%=@article4.color%>;border: 1px solid <%=@article4.color%>;">
+            <img src='<%="/images/#{@article4.id}.png" rescue " "%>' class="img-responsive">
+              <div class="caption" style="color:#fff;">
+                <%if @article4.title.length>30%>
+                <h3 style="min-height: 45px;"><%=@article4.title.first(28)%> ...</h3>
+                <%else%>
+                <h3 style="min-height: 45px;"><%=@article4.title.first(30)%></h3>
+                <%end%>
+                <%if @article4.content.length>33%>
+                <p> <%=@article4.content.first(30).html_safe %>...</p>
+                <%else%>
+                <p><%= @article4.content.html_safe %></p>
+                <%end%>
+              <a href="/<%= @article4.category.name.split(' ').join('-')%>/<%= @article4.title.split(' ').join('-')%>/<%=@article4.id%>" class="btn btn-md btn-secondary btn-xs" role="button">اقراء المزيد</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="thumbnail pad-0" style="background-color:<%=@article3.color%>;border: 1px solid <%=@article3.color%>;">
+            <img src='<%="/images/#{@article3.id}.png" rescue " "%>' class="img-responsive">
+              <div class="caption" style="color:#fff;">
+                <%if @article3.title.length>30%>
+                <h3 style="min-height: 45px;"><%=@article3.title.first(28)%> ...</h3>
+                <%else%>
+                <h3 style="min-height: 45px;"><%=@article3.title.first(30)%></h3>
+                <%end%>
+                <%if @article3.content.length>33%>
+                <p> <%=@article3.content.first(30).html_safe %>...</p>
+                <%else%>
+                <p><%= @article3.content.html_safe %></p>
+                <%end%>
+              <a href="/<%= @article3.category.name.split(' ').join('-')%>/<%= @article3.title.split(' ').join('-')%>/<%=@article3.id%>" class="btn btn-md btn-secondary btn-xs" role="button">اقراء المزيد</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="thumbnail pad-0" style="background-color:<%=@article2.color%>;border: 1px solid <%=@article2.color%>;">
+            <img src='<%="/images/#{@article2.id}.png" rescue " "%>' class="img-responsive">
+              <div class="caption" style="color:#fff;">
+                <%if @article2.title.length>30%>
+                <h3 style="min-height: 45px;"><%=@article2.title.first(28)%> ...</h3>
+                <%else%>
+                <h3 style="min-height: 45px;"><%=@article2.title.first(30)%></h3>
+                <%end%>
+                <%if @article2.content.length>33%>
+                <p> <%=@article2.content.first(30).html_safe %>...</p>
+                <%else%>
+                <p><%= @article2.content.html_safe %></p>
+                <%end%>
+              <a href="/<%= @article2.category.name.split(' ').join('-')%>/<%= @article2.title.split(' ').join('-')%>/<%=@article2.id%>" class="btn btn-md btn-secondary btn-xs" role="button">اقراء المزيد</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="thumbnail pad-0" style="background-color:<%=@article1.color%>;border: 1px solid <%=@article1.color%>;">
+            <img src='<%="/images/#{@article1.id}.png" rescue " "%>' class="img-responsive">
+              <div class="caption" style="color:#fff;">
+                <%if @article1.title.length>30%>
+                <h3 style="min-height: 45px;"><%=@article1.title.first(28)%> ...</h3>
+                <%else%>
+                <h3 style="min-height: 45px;"><%=@article1.title.first(30)%></h3>
+                <%end%>
+                <%if @article1.content.length>33%>
+                <p> <%=@article1.content.first(30).html_safe %>...</p>
+                <%else%>
+                <p><%= @article1.content.html_safe %></p>
+                <%end%>
+              <a href="/<%= @article1.category.name.split(' ').join('-')%>/<%= @article1.title.split(' ').join('-')%>/<%=@article1.id%>" class="btn btn-md btn-secondary btn-xs" role="button">اقراء المزيد</a>
+            </div>
+          </div>
+        </div>
+
+            </div>
+        </div>
+    </section>
+    <div class="push"></div>
+ <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-left">
+                <span class="copyright text-muted">Copyright &copy; 
+                    <a href="#" target="_blank">
+                    <b>Hadhada</b>
+                    </a> 2016</span>
+                </div>
+                <div class="col-md-6 text-right">
+                  <div class="social-area pull-right">                
+                    <a class="btn btn-social btn-facebook btn-simple" href="#" target="_blank">
+                        <i class="fa fa-facebook-square"></i>
+                    </a>
+                    <a class="btn btn-social btn-twitter btn-simple" href="#" target="_blank">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="/assets/mainer.js"></script>
+
+<script>
+    $(window).scroll(function() {
+        $('#cats').each(function(){
+        var imagePos = $(this).offset().top;
+
+        var topOfWindow = $(window).scrollTop();
+            if (imagePos < topOfWindow+370) {
+                $(this).addClass("animated fadeInUp");
+                $(this).attr('style','visibility: visible;');
+            }
+        });
+        $('#services').each(function(){
+        var imagePos = $(this).offset().top;
+
+        var topOfWindow = $(window).scrollTop();
+            if (imagePos < topOfWindow+350) {
+                $(this).addClass("animated fadeInUp");
+                $(this).attr('style','visibility: visible;');
+            }
+        });
+        $('#logo').each(function(){
+        var imagePos = $(this).offset().top;
+
+        var topOfWindow = $(window).scrollTop();
+            if (imagePos < topOfWindow+350) {
+                $(this).addClass("animated bounceInRight");
+                $(this).attr('style','visibility: visible;');
+            }
+        });
+        $('.bg_sec3').each(function(){
+        var imagePos = $(this).offset().top;
+
+        var topOfWindow = $(window).scrollTop();
+            if (imagePos < topOfWindow+350) {
+                $(this).addClass("animated bounceInLeft");
+                $(this).attr('style','visibility: visible;');
+            }
+        });
+    });
+</script>
+
+<style type="text/css">
+#logo{
+  position: relative;top: 3.2em;right: 8em;
+}
+
+.btn-lg{padding: 4px 25px; margin-top: 7px;}
+
+.panel {
+    box-shadow: 0 2px 0 rgba(0,0,0,0.075);
+    border-radius: 50%;
+    border: 0;
+    margin-bottom: 15px;
+    color: #fff;
+    position: relative;
+    top: 17em;
+    z-index: 10;
+    max-height: 192px;
+    max-width: 188px;
+}
+
+
+/*#A23E8D mama tktob*/
+/*om jadeda #23BD3D*/
+/*trjmat #F32B2B*/
+/*rde3e #31708F*/
+
+@media (min-width: 768px) {
+.panel:hover{
+     -moz-transform: scale(1.06);
+  -webkit-transform: scale(1.06);
+  -o-transform: scale(1.06);
+  transform: scale(1.06);
+}
+#services .col-md-3:hover {
+-moz-transform: scale(1.06);
+  -webkit-transform: scale(1.06);
+  -o-transform: scale(1.06);
+  transform: scale(1.06);
+}
+#services .col-md-3 .thumbnail{min-height: 360px;max-height: 360px;}
+}
+@media (max-width: 768px) {
+  #family{display: none;} 
+}
+.panel>:last-child {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.panel .panel-heading, .panel>:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.panel-body {
+    padding: 25px 20px;
+}
+.mar-btm {
+    margin-bottom: 8px;
+}
+.text-sm {
+    font-size: 26px;
+}
+.panel:hover img {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.panel img {
+  -webkit-transition: all 220ms ease-in-out;
+  -moz-transition: all 220ms ease-in-out;
+  -o-transition: all 220ms ease-in-out;
+  transition: all 220ms ease-in-out;
+  width: 50px;
+  margin-top: 0px;
+}
+.panel .btn{margin-top: 15px;}
+
+.panel {
+  -webkit-transition: all 220ms ease-in-out;
+  -moz-transition: all 220ms ease-in-out;
+  -o-transition: all 220ms ease-in-out;
+  transition: all 220ms ease-in-out;
+}
+
+#services .col-md-3 {
+    -webkit-transition: all 220ms ease-in-out;
+  -moz-transition: all 220ms ease-in-out;
+  -o-transition: all 220ms ease-in-out;
+  transition: all 220ms ease-in-out;
+
+}
+
+#services .col-md-3:hover .thumbnail{
+  border: 1px solid rgba(102, 102, 102, 0.52);
+}
+
+.thumbnail>img {
+    max-height: 180px;
+    min-height: 180px;
+}
+</style>

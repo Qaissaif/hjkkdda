@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-md-8 col-sm-6">
+    	<div class="col-md-4 col-sm-3">
+<%= link_to ' مقال جديد ',new_article_article_index_path,:class=>"btn btn-compose fa fa-plus"  ,:data=>{:toggle=>"tooltip", :title=>"مقال جديد"}%>
+</div>
+<div class="col-md-4 col-sm-3">
+<%= link_to ' مقطع جديد ',new_sound_path,:class=>"btn btn-compose  fa fa-plus"  ,:data=>{:toggle=>"tooltip", :title=>"مقطع جديد"}%>
+</div>
+</div>
+</div>
+
+<style type="text/css">
+.btn-compose {
+    background: #4ECDC4;
+    padding: 12px 0;
+    text-align: center;
+    width: 100%;
+    color: #fff;
+}
+.btn-compose:hover, .btn-compose:focus {
+    background: #1ca59e;
+    color: #fff;
+}
+</style>

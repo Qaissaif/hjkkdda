@@ -1,0 +1,47 @@
+<aside>
+          <div id="sidebar" class="nav-collapse" tabindex="5000" style="overflow: hidden; outline: none; margin-left: 0px;">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu" id="nav-accordion" style="display: block;">
+              
+                  <li>
+                      <a <%= "class=active" if controller_name=="dashboard" %> href="<%= dashboard_index_path %>">
+                          <i class="fa fa-dashboard"></i>
+                          <span>لوحة التحكم</span>
+                      </a>
+                  </li>
+
+                 <li>
+                      <a <%= "class=active" if controller_name=="article" %> href="<%= article_index_path %>">
+                          <i class="fa fa-th"></i>
+                          <span>المقالات</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a <%= "class=active" if controller_name=="sound" %> href="<%=sounds_sound_index_path%>"> 
+                          <i class="fa fa-twitter"></i>
+                          <span>هدهدات</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a <%= "class=active" if controller_name=="" %> href="/cat">
+                          <i class="fa fa-fire"></i>
+                          <span>الأبواب</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a <%= "class=active" if controller_name=="" %> href="/set">
+                          <i class="fa fa-cogs"></i>
+                          <span>الإعدادات</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a <%= "class=active" if controller_name=="" %> href="/go">
+                          <i class="fa fa-desktop"></i>
+                          <span>المقالات</span>
+                      </a>
+                  </li>
+
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>

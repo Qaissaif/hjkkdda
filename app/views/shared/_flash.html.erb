@@ -1,0 +1,12 @@
+
+<script>
+
+<% if flash[:alert] %>
+toastr.error('<%= flash[:alert].capitalize %>');
+<% elsif flash[:info] %>
+toastr.info('<%= flash[:info].capitalize %>');
+<% elsif flash[:success] %>
+toastr.success('<%= flash[:success].capitalize %>');
+<% end %>
+
+</script>

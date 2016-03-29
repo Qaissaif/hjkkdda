@@ -1,0 +1,38 @@
+
+<!-- HOME -->
+  <section class="home bg-two" id="home">
+    <div class="bg-overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <div class="full-screen">
+            <div class="home-wrapper home-wrapper-alt">
+              <!-- <h1 class="animated fadeInDown wow animated" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInDown;">ترانيم الطفولة الأولى</h1>
+              <h4 class="animated fadeInDown wow animated" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">كل ما يهم الأم لتعرفه عن طفلها</h4> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 text-center" id="cats" style="visibility: hidden; animation-delay: 0.6s;">
+          <div >
+              <%Category.all.each do |cat|%>
+              <%if cat.parent_id==nil%>
+                  <div class="col-md-3 col-sm-6">
+                      <div class="panel" style="background-color:<%=cat.color%>;">
+                          <div class="panel-body text-center">
+                              <p class="text-uppercase mar-btm text-sm"><%=cat.name%></p>
+                                <img src="/<%=cat.id%>.png">
+                                <br>
+                                <a href="<%=category_index_path(:id=>cat.id)%>" class="btn btn-md btn-secondary">المزيد</a>
+                          </div>
+                      </div>
+                  </div>
+                  <%end%>
+              <%end%>
+          </div>
+        </div>    
+      </div>
+    </div>
+  </section>
+  <!-- END HOME -->

@@ -1,0 +1,30 @@
+
+<div class="row" style="margin-top:35px;">
+    <% @articles.each do |article| %>
+         <div class="col-sm-6 col-lg-4 pull-right">
+            <div class="panel" style="border: 1px solid #ddd;">
+                  <div class="panel-heading" style="background-color:#202d3b;
+                   color: #fff;">
+                    <h4 class="panel-title">
+                     <%if article.title.length>40%>
+                        <%=article.title.first(37) %>...
+                        <%else%>
+                        <%= article.title %>
+                        <%end%>
+                    </h4>
+                  </div>
+                <div class="panel-footer">
+
+                    <a class="btn btn-link btn-xs" href="<%=edit_article_path(:id=>article.id)%>" data-placement="bottom" data-toggle="tooltip" data-original-title="تعديل"><i class="fa fa-pencil"></i>
+                    </a>
+                    <%= link_to " ",article_path(:id=>article.id),:method=>"delete" ,:class=>"btn btn-link btn-xs fa fa-trash", :data=>{:placement=>"bottom",:confirm=>"هل أنت متأكد؟", :toggle=>"tooltip", :title=>"حذف"} %>
+                    <a  class="text-capitalize pull-right btn btn-link btn-xs">
+                    <%= article.category.name%></a> 
+                    
+                </div>
+            </div>
+        </a>
+        </div>
+    <%end%>
+</div>
+

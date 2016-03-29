@@ -1,0 +1,351 @@
+<% @page_title = "SignUp" %>
+<div class="fullscreen-bg"></div>
+<div id="signinn">
+<div class="container">
+
+<div class=" col-lg-4 col-lg-offset-4 col-sm-6 col-sm-offset-3 ">
+<div class="admin-form theme-primary mw1000 center-block" style="padding-bottom: 100px;">
+
+   <div class="panel heading-border panel-primary">
+  <%= form_for(:user, :url => {:controller => 'main', :action => 'sign_up'},:html => {:id => "user"}) do |f| %>
+            <div class="panel-heading">
+                  <h3 class="panel-title" style="font-size:1.5em;">مستخدم جديد</h3>
+            </div>
+
+            <label for="username" class="field prepend-icon">
+      <%= f.text_field :username, :class=>"form-control",
+          :required=>"true",:placeholder=>"إسم المستخدم" ,:id=>"username"%>
+          <label for="username" class="field-icon">
+              <i class="fa fa-user"></i>
+          </label>
+
+          </label>
+
+          <br>
+          <br>
+
+  <label for="email" class="field prepend-icon">
+    <%= f.text_field :email,:class=>"form-control",:placeholder=>"البريد الالكتروني", :required=>"true",:id=>"signup-email"%> 
+    <label for="email" class="field-icon">
+              <i class="fa fa-envelope"></i>
+          </label>
+          </label>
+
+          <br>
+          <br>
+
+
+    <label for="password" class="field prepend-icon">
+    <%= f.password_field :password,:id=>"pass",:class=>"form-control" ,:placeholder=>"كلمة المرور", :required=>"true",:id=>"signup-pass"%>
+    <label for="password" class="field-icon">
+              <i class="fa fa-lock"></i>
+          </label>
+          </label>
+
+          <br>
+          <br>
+
+
+
+
+    <label for="password_confirmation" class="field prepend-icon">
+    <%= f.password_field :password_confirmation,:class=>"form-control" ,:placeholder=>"تأكيد كلمة المرور", :required=>"true",:id=>"pass_confirm"%>
+    <label for="password_confirmation" class="field-icon">
+              <i class="fa fa-check"></i>
+          </label>
+          </label>
+
+          <br>
+          <br>
+
+ 
+    <%= f.submit "تسجيل",:id=>"signup-submit",:class=>"btn btn-lg btn-primary btn-block" %>
+
+  <% end %>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+<style type="text/css">
+.fullscreen-bg {
+  background: url("/assets/baby1.jpg") repeat scroll 0 0 transparent !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+#signinn {
+ margin-top:98px;
+}
+.navbar-default {
+    z-index: 150;
+    position: relative;
+    width: 100%;
+    background-color: #FFF;
+    padding: 10px 0 10px;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+    -webkit-box-shadow: 0 2px 2px rgba(0,0,0,.1);
+    box-shadow: 0 2px 2px rgba(0,0,0,.1);
+  }
+  .heading-border{
+  border: 1px solid rgb(218, 200, 200);
+  padding: 30px;
+}
+.heading-border .panel-heading {
+  position: relative;
+  height: 50px;
+  padding: 0;
+  overflow: hidden;
+  border-bottom: 1px solid transparent;
+}
+.panel-title {
+  font-weight: 500;
+  padding-right: 20px;
+  font-size: 1em;
+  line-height: 30px;
+}
+
+.admin-form {
+  line-height: 1.231;
+  font-weight: 400;
+  font-size: 14px;
+  color: #626262;
+}
+
+.admin-form .gui-input {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+.admin-form label{
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: #626262;
+  outline: none;
+}
+
+.admin-form .field-icon i {
+  color: #BBB;
+  position: relative;
+}
+.admin-form .field-label {
+  display: block;
+  margin-bottom: 7px;
+}
+.admin-form .gui-input{
+  position: relative;
+  vertical-align: top;
+  border: 1px solid #DDD;
+  display: -moz-inline-stack;
+  display: inline-block;
+  display: inline;
+  color: #626262;
+  outline: none;
+  height: 42px;
+  width: 100%;
+  zoom: 1;
+}
+.admin-form .form-control:focus ~ .field-icon i {
+  color: #555;
+}
+.admin-form .prepend-icon {
+  top: 0;
+  left: 0;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  width: 100%;
+}
+.admin-form .prepend-icon .field-icon {
+  top: 0;
+  left: 0;
+  z-index: 4;
+  width: 42px;
+  height: 35px;
+  color: inherit;
+  line-height: 35px;
+  position: absolute;
+  text-align: center;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -ms-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+  pointer-events: none;
+}
+.admin-form .append-icon .field-icon i,
+.admin-form .prepend-icon .field-icon i {
+  position: relative;
+  font-size: 14px;
+}
+
+.admin-form .prepend-icon > input {
+      padding-right: 7px;
+}
+</style>
+
+<script>
+ 
+$(document).ready(function(){
+
+    var signup = {
+    formbox: $('#user'),
+    emailbox: $("#signup-email"),
+    usernamebox: $("#username"),
+    passwordbox: $("#signup-pass"),
+    confirmbox: $("#pass_confirm"),
+    valid: {"signup-email": false,"username": false,"pass_confirm": false,"signup-pass": false},
+    showError: function(id, msg) {
+      var error = $('<p>').addClass('error').text(msg);
+      error.insertAfter('#'+id);
+      $('#'+id).addClass('error-box');
+    },
+    resetValidation: function(id){
+      $('#'+id).siblings('.error').remove();
+      $('#'+id).removeClass('error-box');
+      this.valid[id] = true;
+    },
+    resetAllValidation: function() {
+      this.formbox.siblings('.error').remove();
+      this.formbox.siblings('.error').remove();
+      for (myvar in this.valid) {
+        this.valid[myvar] = true;
+      }
+    },
+    validateEmail: function() {
+      var email = this.emailbox.val();
+        id = this.emailbox.attr('id');
+        pattern = /^[\w.%+-]+@([\w-]+\.)+[\w]{2,}$/i;
+
+      if (email == ''|| email==null || email == "undefined") {
+        this.showError(id, "يجب إدخال البريد الالكتروني");
+        this.valid[id] = false;
+      } else if (!pattern.test(email)){
+        this.showError(id, "يرجى استخدام بريد الكتروني صحيح");
+        this.valid[id] = false;
+      } else {
+        var that = this;
+        $.ajax({
+          type: 'POST',
+          url: '<%=check_email_main_index_path%>',
+          data: {email: email},
+          //async: false,
+          complete: function(jqXHR, textStatus){
+            if(jqXHR.status == "203"){
+              that.valid[id] = false;
+              that.showError(id, "البريد الالكتروني مسجل مسبقا");
+            }else if(jqXHR.status == "202"){
+              //valid
+
+            }
+          }
+        });
+      }
+    },
+    validateUsername: function() {
+      var user = this.usernamebox.val();
+        id = this.usernamebox.attr('id');
+
+      if (user == ''|| user==null || user == "undefined") {
+        this.showError(id, "يجب ادخال اسم المستخدم");
+        this.valid[id] = false;
+      } else if (user.length < 3 ){
+        this.showError(id, "يجب ان يكون اسم المستخدم اكثر من 3 خانات");
+        this.valid[id] = false;
+      } else {
+        var that = this;
+        $.ajax({
+          type: 'POST',
+          url: '<%=check_username_main_index_path%>',
+          data: {username: user},
+          //async: false,
+          complete: function(jqXHR, textStatus){
+            if(jqXHR.status == "203"){
+              that.valid[id] = false;
+              that.showError(id, "إسم المستخدم موجود");
+            }else if(jqXHR.status == "202"){
+              //valid
+            }
+          }
+        });
+      }
+    },
+    validatePassword: function() {
+      var password = this.passwordbox.val();
+        id = this.passwordbox.attr('id');
+
+      if (password == ''|| password==null || password == "undefined") {
+        this.showError(id, "يجب ادخال كلمة المرور");
+        this.valid[id] = false;
+      } else if (password.length < 6 ){
+        this.showError(id, "يجب ان تكون كلمة المرور اكثر من 6 خانات");
+        this.valid[id] = false;
+      }
+    },
+    validateConfirm: function() {
+      var confirm = this.confirmbox.val();
+      var password = this.passwordbox.val();
+        id = this.confirmbox.attr('id');
+
+      if (confirm == ''|| confirm==null || confirm == "undefined") {
+        this.showError(id, "يجب تأكيد كلمة المرور");
+        this.valid[id] = false;
+      } else if (confirm.length < 6 ){
+        this.showError(id, "يجب ان تكون كلمة المرور اكثر من 6 خانات");
+        this.valid[id] = false;
+      } else if(confirm != password){
+        this.showError(id, "لم تتطابق مع كلمة المرور");
+        this.valid[id] = false;
+      }
+    },
+    
+  };
+
+  $("#signup-submit").click(function(e){
+    for (myvar in signup.valid) {
+      if (! signup.valid[myvar]) {
+        e.preventDefault();
+        return false;
+      }
+    }
+    signup.resetAllValidation();
+    signup.validateOriginalLanguage();
+  });
+
+  $("#signup-email, #signup-pass, #signup-site, #username, #pass_confirm").focus(function(){
+    signup.resetValidation($(this).attr('id'));
+  });
+  $("#signup-email").blur(function(){
+    signup.resetValidation($(this).attr('id'));
+    signup.validateEmail();
+  });
+  $("#signup-pass").blur(function(){
+    signup.resetValidation($(this).attr('id'));
+    signup.validatePassword();
+  });
+  $("#pass_confirm").blur(function(){
+    signup.resetValidation($(this).attr('id'));
+    signup.validateConfirm();
+  });
+  $("#username").blur(function(){
+    signup.resetValidation($(this).attr('id'));
+    signup.validateUsername();
+  });
+
+
+});
+</script>
+

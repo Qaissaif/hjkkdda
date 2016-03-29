@@ -1,0 +1,242 @@
+
+<div id="PageContainer" class="is-moved-by-drawer">
+      <main role="main" id="Main">
+         <div class="page-block sub-page-block">
+          <div class="page-width">
+            <div class="grid-container" data-related="Selling in person with Shopify">
+
+ <div id="content" class="article marketing-markdown grid-item grid--last grid-6">
+
+                  <h1><%=@article.title%></h1>
+    <div class="post-details pull-right">
+    <div class="pull-right"><i class="fa fa-calendar"></i> <%=@article.created_at.strftime("%Y/%m/%d")%></div>
+    </div>
+    <div class="img-wrapper">
+    <img class="scale" src="/images/<%=@article.id%>.png" alt="<%=@article.title%>">
+    </div>
+<%=@article.content.html_safe%>
+  </div>
+
+    <div id="sidemenu" class="sticky-menu hide--mobile pull-right" data-swiftype-index="false">
+      <aside class="sidemenu-column" role="navigation" aria-label="manual Menu">
+        <span class="sidemenu-nav-header text-capitalize"><%= @article.category.name%></span>
+        <ul class="in-page-menu sidemenu-menu">
+         <% @article.category.articles.each do |arts| %>
+           <li class="sidemenu-menu__item">
+           <a href="/<%= arts.category.name.split(' ').join('-')%>/<%= arts.title.split(' ').join('-')%>/<%=arts.id%>"><%=arts.title%></a>
+           </li>
+<% end %>
+        </ul>
+  </aside>
+</div>
+
+<div  class="pull-right col-md-3 col-sm-6">
+      <img src="/assets/back2.png" style="margin-top:11em;margin-right:1em;">
+      <img src="/assets/back3.png" style="margin-top:8em;">
+</div>
+
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+<div class="push"></div>
+ <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-left">
+                <span class="copyright text-muted">Copyright &copy; 
+                    <a href="#" target="_blank">
+                    <b>Hadhada</b>
+                    </a> 2016</span>
+                </div>
+                <div class="col-md-6 text-right">
+                  <div class="social-area pull-right">                
+                    <a class="btn btn-social btn-facebook btn-simple" href="#" target="_blank">
+                        <i class="fa fa-facebook-square"></i>
+                    </a>
+                    <a class="btn btn-social btn-twitter btn-simple" href="#" target="_blank">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+$(function () {
+    var url = window.location.href; 
+    var activePage = url.substring(url.lastIndexOf('/') + 1);
+    var flag=false;
+        $('.in-page-menu .sidemenu-menu__item a').each(function () {
+            var linkPage = this.href.substring(this.href.lastIndexOf('/') + 1); 
+ 
+            if (activePage == linkPage) { 
+              $(this).addClass('active');
+              flag=true;
+                
+            }
+
+        });
+
+        if(flag==false)
+        {
+          $('.sidemenu-menu__item a').first().addClass('active');
+        }
+})
+});
+
+</script>
+
+<style type="text/css">
+#PageContainer {
+    overflow: hidden;
+    width: 100%;
+}
+#PageContainer:before {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    -webkit-transition: visibility 0.4s linear, opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: visibility 0.4s linear, opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    content: '';
+    z-index: 999;
+}
+main{
+    max-width: none;
+    display: block;
+}
+main, .footer--main, .footer-bottom, .page-width {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+.sub-page-block {
+    padding-top: 1.875em;
+}
+.page-block {
+    padding: 5.625em 0;
+    border-color: #e5e5e5;
+}
+@media screen and (min-width: 61.875em){
+.page-width {
+    width: 85%;
+}
+.grid-6 {
+    width: 700px;
+    margin-right: 30px;
+}
+}
+.page-width {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.grid-container {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+.grid-item {
+    float: left;
+    position: relative;
+}
+.sidemenu-column {
+    margin-top: 125px;
+    padding-bottom: 15px;
+    margin-right: -25px;
+}
+.sidemenu-menu {
+    margin: 0;
+    line-height: 1.2;
+    max-width: 280px;
+}
+.in-page-menu {
+    list-style: none;
+    margin-bottom: 30px;
+}
+.sidemenu-menu__item {
+    padding: 7.5px 10px;
+}
+.sidemenu-menu__item a{
+  font-size: 16px;
+  display: block;
+  line-height: 1.5em;
+  text-align: right;
+  color: #555;
+  text-decoration: none;
+}
+.sidemenu-menu__item a:hover{
+text-decoration: none;
+  color: #09afdf;
+}
+.sidemenu-menu__item a.active{
+text-decoration: none;
+  color: #09afdf;
+}
+#content {
+    margin-top: 15px;
+}
+.article.marketing-markdown {
+    margin-top: 0;
+    padding-bottom: 0;
+}
+main .marketing-markdown{
+    margin-bottom: 0.9375em;
+    line-height: 1.5em;
+    font-size: 1em;
+}
+.marketing-markdown {
+    margin-top: 10px;
+    padding-bottom: 10px;
+    color: #444;
+}
+
+p, .marketing-markdown, ul, ol {
+    margin: 0;
+    padding: 0;
+}
+.article .img-wrapper {
+    background: #fff;
+    padding: 0;
+    margin: 1.875em 0;
+    text-align: center;
+}
+.article .img-wrapper img {
+    margin: 0;
+}
+.marketing-markdown p, .marketing-markdown .marketing-markdown, .marketing-markdown ul, .marketing-markdown ol {
+    margin-bottom: 1.25em;
+}
+.sidemenu-nav-header{
+  margin: 0 0 8px 0;
+  padding: 0 0 12px 0;
+  display: block;
+  font-size: 22px;
+  border-bottom: 1px solid #ddd;
+  color: #6F7479;
+  position: relative;
+  text-align: right;
+  padding-left: 20px;
+  }          /* the head */
+  .post-details {
+    margin-bottom: 5px;
+    color: #a8a8a8;
+    font-size: 14px;
+    width: 100%;
+    float: right;
+    padding-right: 3px;
+}
+</style>

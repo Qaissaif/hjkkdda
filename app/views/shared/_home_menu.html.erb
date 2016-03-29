@@ -1,0 +1,93 @@
+<div class="navbar navbar-custom sticky navbar-abs" role="navigation" id="stick">
+    <div class="container">
+      <!-- Navbar-header -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+             <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+        </button>
+        <!-- LOGO -->
+        <a class="navbar-brand logo" href="/">
+        <img alt="هدهدة"  src="/assets/2.png" width="210"></a>
+
+        </a>
+      </div>
+      <!-- end navbar-header -->
+
+      <!-- menu -->
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-left">
+          <li><a href="/">الرئيسية</a></li>
+          <li <%= "class=active" if controller_name=="category" %>><a class="page-scroll" href="#features-flat">الأبواب</a>
+        <% categorys=[]
+        sub=[]
+        Category.all.each do |cat|
+      if cat.parent_id==nil
+      categorys<<cat.name
+      else
+      sub<<cat.name
+        end
+        end %>
+        <ul id="drop">
+          <li><a href="<%=category_index_path(:id=>1)%>"><%=categorys[3]%></a></li>
+          <li><a href="<%=category_index_path(:id=>2)%>"><%=categorys[2]%></a>
+            <ul id="lvl2">
+          <li><a href="<%=category_index_path(:id=>5)%>"><%=sub[3]%></a></li>
+          <li><a href="<%=category_index_path(:id=>6)%>"><%=sub[2]%></a></li>
+          <li><a href="<%=category_index_path(:id=>7)%>"><%=sub[1]%></a></li>
+          <li><a href="<%=category_index_path(:id=>8)%>"><%=sub[0]%></a></li>
+            </ul>
+          </li>
+          <li><a href="<%=category_index_path(:id=>3)%>"><%=categorys[1]%></a></li>
+          <li><a href="<%=category_index_path(:id=>4)%>"><%=categorys[0]%></a></li>
+        </ul>
+      </li> 
+      <li <%= "class=active" if controller_name=="sound" %>><a href="<%= sound_index_path%>">هدهدات</a></li>
+      <% if @user %>
+      <li <%= "class=active" if controller_name=="dashboard" %>><a href="<%= dashboard_index_path%>">لوحة التحكم</a></li>
+      <li><a href="<%= sign_out_main_index_path %>">تسجيل الخروج <i class="fa fa-sign-out" style="padding-left:4px;"></i></a></li>
+      <% else %>
+      <li <%= "class=active" if action_name=="sign" %>><a
+        href="<%= sign_main_index_path %>">تسجيل الدخول <i class="fa fa-sign-in" style="padding-left:4px;"></i></a></li>
+        <li <%= "class=active" if action_name=="signup" %>><a
+        href="<%= signup_main_index_path %>">مستخدم جديد <i class="fa fa-user-plus" style="padding-left:4px;"></i></a></li>
+      <% end %>
+        </ul>
+      </div>
+      <!--/Menu -->
+    </div>
+    <!-- end container -->
+  </div>
+  <div class="clearfix"></div>
+
+<script>
+// from https://signalvnoise.com/posts/2407-device-scale-user-interface-elements-in-ios-mobile-safari
+function getDeviceScale() {
+    var deviceWidth, landscape = Math.abs(window.orientation) == 90;
+    if (landscape) {
+      // iPhone OS < 3.2 reports a screen height of 396px
+      deviceWidth = Math.max(480, screen.height);
+    } else {
+      deviceWidth = screen.width;
+    }
+    return window.innerWidth / deviceWidth;
+}
+
+// mobile only - keep the position:fixed header at constant size when page is zoomed
+if (navigator.userAgent.match(/Mobi/)) {
+    $(window).on('load scroll', function() {
+        var ds = getDeviceScale();
+        $('.device-fixed-height').css('transform','scale(1,' + ds + ')')
+            .css('transform-origin', '0 0');
+        $('.device-fixed-width').css('transform', 'scale(' + ds + ',1)')
+            .css('transform-origin', '0 0');
+        })
+}
+</script>
+<script>
+  $(document).ready(function(){
+    $("#stick").sticky({topSpacing:0});
+  });
+  </script>
