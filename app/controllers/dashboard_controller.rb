@@ -1,10 +1,27 @@
 class DashboardController < ApplicationController
+	before_filter :authenticate
 
 	layout "admin_layout"
 	
 
 	def index
 		
+	end
+
+	def add_user
+		render :layout => 'content_layout'
+	end
+
+	def create_user
+		params.permit!
+		params[:user].each{|k,v| v.downcase! rescue v}
+		@user=User.new(params[:user])
+		@user.encrypted_password=Digest::MD5.hexdigest(params[:user][:password]+"hadhada")
+		if @user.save
+			redirect_to dashboard_index_path,:flash => { :success => "تم إنشاء المستخدم" } and return
+		else
+			redirect_to dashboard_index_path,:flash => { :alert => "لم يتم إنشاء المستخدم" } and return
+		end
 	end
 
 	

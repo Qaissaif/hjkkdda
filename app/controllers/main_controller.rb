@@ -9,7 +9,12 @@ class MainController < ApplicationController
 	end
 
 	def sign
+		if @user
+			flash[:info]="تم تسجيل الدخول سابقا"
+			redirect_to dashboard_index_path and return
+		else
 		render :layout => 'content_layout'
+		end
 	end
 
 	def sign_in
@@ -29,23 +34,6 @@ class MainController < ApplicationController
 		@user=nil
 		flash[:info]="تم الخروج"
 		redirect_to sign_main_index_path
-	end
-
-	def signup
-		render :layout => 'content_layout'
-	end
-
-	def sign_up
-		params.permit!
-		params[:user].each{|k,v| v.downcase! rescue v}
-		@user=User.new(params[:user])
-		@user.encrypted_password=Digest::MD5.hexdigest(params[:user][:password]+"hadhada")
-		if @user.save
-			session[:user]=@user.id
-			redirect_to dashboard_index_path,:flash => { :success => "تم إنشاء المستخدم" } and return
-		else
-			redirect_to signup_main_index_path,:flash => { :alert => "لم يتم إنشاء المستخدم" } and return
-		end
 	end
 
 	def check_email

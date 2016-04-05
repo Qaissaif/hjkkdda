@@ -335,6 +335,17 @@ section#signup-section p {
     transition: all 0.5s ease-out;
     
 }
+.btn-compose {
+    background: #4ECDC4;
+    padding: 12px 0;
+    text-align: center;
+    width: 100%;
+    color: #fff;
+}
+.btn-compose:hover, .btn-compose:focus {
+    background: #1ca59e;
+    color: #fff;
+}
 .btn-secondary:hover, .btn-secondary:active {
     background: transparent;
     border-color: #fff;
@@ -529,14 +540,16 @@ ul.sidebar-menu li a.active i {
 .mb {
   margin-bottom: 25px;
 }
-
-
 .no-padding {
   padding: 0 !important;
 }
 
 .no-margin {
   margin: 0 !important;
+}
+.person .fa{
+  font-size: 5em;
+  color: #fff;
 }
 /*--------------end -------------------*/
 

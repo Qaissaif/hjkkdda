@@ -9,13 +9,54 @@
 
                   <h1><%=@article.title%></h1>
     <div class="post-details pull-right">
-    <div class="pull-right"><i class="fa fa-calendar"></i> <%=@article.created_at.strftime("%Y/%m/%d")%></div>
+    <div class="pull-right"><i class="fa fa-calendar"></i> <%=@article.created_at.strftime("%Y/%m/%d")%>&nbsp;&nbsp;&nbsp;
+      <i class="fa fa-comment-o"></i> 
+        <span class="font-lato"><%= @article.comments.count%></span>
     </div>
+    </div>
+    <br>
     <div class="img-wrapper">
     <img class="scale" src="/images/<%=@article.id%>.png" alt="<%=@article.title%>">
     </div>
-<%=@article.content.html_safe%>
+  <%=@article.content.html_safe%>
+  
+  <br><br><br>
+  <h4>اترك تعليقاً</h4>
+  <hr>
+  <%= render 'shared/comment_new'%>
+<br><br>
+
+<div id="comments">
+</div>
+
+<%@article.comments.each do |comm|%>
+  <div class="row" id="<%=comm.id%>">
+      <div class="col-md-10 col-sm-10">
+      <div class="panel panel-default arrow right">
+        <div class="panel-body">
+          <header class="text-right">
+            <div class="comment-user"><i class="fa fa-user"></i> <%=comm.commentor%></div>
+              <span class="comment-date"><i class="fa fa-clock-o"></i> <%= l(comm.created_at, format: '%Y/%m/%d') %></span>
+          </header>
+        <div class="comment-post">
+        <p><%=comm.content%></p>
+        </div>
+        <%if can? :destroy, Comment %> 
+        <%= link_to " ",comment_path(:id=>comm.id),remote: true,:method=>"delete" ,:class=>"btn btn-link btn-xs fa fa-trash del-comment",:data=>{:placement=>"bottom",:confirm=>"هل أنت متأكد؟", :toggle=>"tooltip", :title=>"حذف"} %>
+        <%end%>
+        </div>
+      </div>
+      </div>
+       <div class="col-md-2 col-sm-2 hidden-xs">
+        <figure class="thumbnail">
+          <img class="img-responsive" src="/assets/avatar2.jpg">
+        </figure>
+      </div>
   </div>
+<%end%>
+ </div>
+
+
 
     <div id="sidemenu" class="sticky-menu hide--mobile pull-right" data-swiftype-index="false">
       <aside class="sidemenu-column" role="navigation" aria-label="manual Menu">
@@ -35,7 +76,7 @@
       <img src="/assets/back3.png" style="margin-top:8em;">
 </div>
 
-            </div>
+</div>
           </div>
         </div>
       </main>
@@ -89,12 +130,70 @@ $(function () {
         {
           $('.sidemenu-menu__item a').first().addClass('active');
         }
-})
 });
 
+
+$(".del-comment").bind('ajax:success', function(event, xhr, status) {
+  if(status == "success"){
+    $('#'+xhr).remove();
+  }
+   });
+});
 </script>
 
 <style type="text/css">
+@media (min-width: 768px){
+.panel.arrow.right:before {
+    right: -16px;
+    top: 30px;
+    border-left-color: inherit;
+    border-width: 16px;
+}
+.arrow:after, .arrow:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent;
+}
+.panel.arrow.right:after {
+    right: -14px;
+    top: 31px;
+    border-left-color: #FFFFFF;
+    border-width: 15px;
+}
+}
+
+.thumbnail {
+    display: block;
+    padding: 4px;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+}
+figure {
+    margin: 0;
+}
+div.row>div img.img-responsive {
+    width: 100%;
+}
+
+img.img-responsive {
+    display: inline-block;
+}
+.text-right {
+    text-align: right; !important;
+}
+.comment-post {
+    margin-top: 10px;
+}
+/*---end of comments*/
 #PageContainer {
     overflow: hidden;
     width: 100%;

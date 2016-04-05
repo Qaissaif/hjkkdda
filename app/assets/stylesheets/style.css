@@ -86,7 +86,26 @@ a:hover,a:focus,.a:active {
 
 
 /*===== Navbar Custom ======*/
- .navbar-header{float: right!important;}
+ @media (min-width: 768px){.navbar-header{float: right!important;}
+ .logo {
+  font-weight: 700;
+  font-size: 22px;
+  color: #ffffff !important;
+  letter-spacing: 1px;
+  margin-top: -10px;
+  margin-right: -30px;
+}
+}
+ @media (max-width: 768px){.navbar-brand{float: right!important;}
+ .logo {
+  font-weight: 700;
+  font-size: 22px;
+  color: #ffffff !important;
+  letter-spacing: 1px;
+  margin-top: -23px;
+  margin-right: -10px;
+}
+}
 .navbar-abs {
   position: absolute;
   top: 0px;
@@ -96,7 +115,7 @@ a:hover,a:focus,.a:active {
 .is-sticky .navbar-custom{
   background: #4F95A9;
     -moz-box-shadow: 0 2px 2px rgba(0,0,0,.1);
-  -webkit-box-shadow: 0 2px 2px rgba(0,0,0,.1);
+  -webkit-box-shadow: 0 2px 2px rgba(0,0,0,.1); 
   box-shadow: 0 2px 2px rgba(0,0,0,.1);
 }
 .navbar-custom {
@@ -120,17 +139,9 @@ a:hover,a:focus,.a:active {
   font-size: 16px;
   font-weight: bold;
 }
-.navbar-custom .nav>li>a:focus,.navbar-custom .nav>li>a:hover {
+.navbar-custom .nav>li>a:focus,.navbar-custom .nav>li>a:hover,.navbar-custom .nav>li.active>a {
   background-color: transparent;
   color: #27CEE2;
-}
-.logo {
-  font-weight: 700;
-  font-size: 22px;
-  color: #ffffff !important;
-  letter-spacing: 1px;
-  margin-top: -10px;
-  margin-right: -30px;
 }
 .is-sticky .logo {
   color: #111 !important;
@@ -138,8 +149,20 @@ a:hover,a:focus,.a:active {
   margin-right: -30px;
 }
 .navbar-toggle {
-  font-size: 30px;
-  color: #ffffff;
+    color: #fff;
+    position: relative;
+    float: left;
+    margin-left: 15px;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid #fff;
+    border-radius: 4px;
+}
+.navbar-toggle .icon-bar {
+    background-color: #fff;
 }
 .navbar-custom .btn-custom {
   margin-top: 8px;

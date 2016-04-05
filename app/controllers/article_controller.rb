@@ -1,8 +1,9 @@
 class ArticleController < ApplicationController
+	load_and_authorize_resource
 
 	layout "admin_layout"
 
-	before_filter :authe, except: [:index,:show]
+	before_filter :authenticate, except: [:show]
 
 	def index
 		 @articles=Article.all
@@ -70,14 +71,15 @@ class ArticleController < ApplicationController
 	end
 
 	def icon
-		post = params[:article][:icon]
 	    article=Article.find(params[:article][:id])
-		f= post.open
+		tmp =params[:article][:icon].tempfile
+    	file = File.join("public/images/","#{article.id}.png")
+    	FileUtils.cp tmp.path, file
 		# if post.content_type=="image/jpeg"
 		# File.write(File.expand_path("public/images/#{article.id}.jpg"),f.read)
 		# article.icon="public/images/#{article.id}.jpg"
 		# else
-		File.write(File.expand_path("public/images/#{article.id}.png"),f.read)
+		#File.write(File.expand_path("public/images/#{article.id}.png"),f.read)
 		article.icon="public/images/#{article.id}.png"
 		# end
 		article.save! rescue redirect_to dashboard_index_path,:flash => { :alert => "لم يتم اضافة الصورة" } and return

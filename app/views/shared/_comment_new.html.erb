@@ -1,0 +1,60 @@
+<%= form_for(:comment, :url => create_comment_comment_index_path, :remote => true) do |f| %>
+  <input type="hidden" value="<%=params[:id]%>" name="article[id]">
+  <div class="field">
+    <%= f.text_field :commentor,:class=>"form-control", :required=>"true", :placeholder=>"الإسم" %>
+  </div>
+  <br>
+  <div class="field">
+    <%= f.text_area :content,:class=>"form-control", :required=>"true", :placeholder=>"التعليق" %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit "إضافة",:id=>"submit",:class=>"btn btn-lg btn-primary "%>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+
+$('#submit').click(function (e) {
+
+        // prevent the default click action
+        e.preventDefault();
+
+
+        var commentor=$('#comment_commentor').val();
+        var content=$('#comment_content').val();
+        
+        // make an ajax call
+        $.ajax({
+          
+            // make a post request to the server
+            type: "POST",
+            // get the url from the href attribute of our link
+            url: '<%=create_comment_comment_index_path%>',
+           
+            data: {
+              comment: {
+                 content: content,
+                commentor: commentor,
+              },
+              article: {
+                id:"<%= params[:id] %>"
+              }
+            },
+            // upon success 
+            success: function(data, textStatus,jqXHR){
+            if(jqXHR.status == "203"){
+              //jqXHR.text;
+            }else if(jqXHR.status == "202"){
+              //valid
+              $('#comments').prepend(data);
+              $('#comment_commentor').val("");
+              $('#comment_content').val("");
+
+            }
+          }
+        });
+
+    });
+
+</script>

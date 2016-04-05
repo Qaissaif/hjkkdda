@@ -10,7 +10,7 @@
         </button>
         <!-- LOGO -->
         <a class="navbar-brand logo" href="/">
-        <img alt="هدهدة"  src="/assets/2.png" width="210"></a>
+        <img alt="هدهدة"  src="/assets/logo2.png" width="210"></a>
 
         </a>
       </div>
@@ -45,14 +45,13 @@
         </ul>
       </li> 
       <li <%= "class=active" if controller_name=="sound" %>><a href="<%= sound_index_path%>">هدهدات</a></li>
+      <li <%= "class=active" if controller_name=="planer" %>><a href="<%= planer_index_path%>">الخطة</a></li>
       <% if @user %>
       <li <%= "class=active" if controller_name=="dashboard" %>><a href="<%= dashboard_index_path%>">لوحة التحكم</a></li>
       <li><a href="<%= sign_out_main_index_path %>">تسجيل الخروج <i class="fa fa-sign-out" style="padding-left:4px;"></i></a></li>
       <% else %>
       <li <%= "class=active" if action_name=="sign" %>><a
         href="<%= sign_main_index_path %>">تسجيل الدخول <i class="fa fa-sign-in" style="padding-left:4px;"></i></a></li>
-        <li <%= "class=active" if action_name=="signup" %>><a
-        href="<%= signup_main_index_path %>">مستخدم جديد <i class="fa fa-user-plus" style="padding-left:4px;"></i></a></li>
       <% end %>
         </ul>
       </div>

@@ -2,7 +2,11 @@
           <div id="sidebar" class="nav-collapse" tabindex="5000" style="overflow: hidden; outline: none; margin-left: 0px;">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion" style="display: block;">
-              
+                <p class="centered person">
+<!--   <img src="assets/img/ui-sam.jpg" class="img-circle" width="80"></a>-->
+                <i class="fa fa-user"></i>
+                </p>
+                <h5 class="centered"><%= @user.username%> | <%= @user.role%></h5>
                   <li>
                       <a <%= "class=active" if controller_name=="dashboard" %> href="<%= dashboard_index_path %>">
                           <i class="fa fa-dashboard"></i>
@@ -10,18 +14,20 @@
                       </a>
                   </li>
 
-                 <li>
+                  <li>
                       <a <%= "class=active" if controller_name=="article" %> href="<%= article_index_path %>">
                           <i class="fa fa-th"></i>
                           <span>المقالات</span>
                       </a>
                   </li>
+                  <%if can? :manage, Sound %>
                   <li>
                       <a <%= "class=active" if controller_name=="sound" %> href="<%=sounds_sound_index_path%>"> 
                           <i class="fa fa-twitter"></i>
                           <span>هدهدات</span>
                       </a>
                   </li>
+                  <%end%>
                   <li>
                       <a <%= "class=active" if controller_name=="" %> href="/cat">
                           <i class="fa fa-fire"></i>
@@ -34,13 +40,14 @@
                           <span>الإعدادات</span>
                       </a>
                   </li>
+                  <%if can? :create, User %>
                   <li>
-                      <a <%= "class=active" if controller_name=="" %> href="/go">
-                          <i class="fa fa-desktop"></i>
-                          <span>المقالات</span>
-                      </a>
+                    <a  <%= "class=active" if action_name=="add_user" %> href="<%= add_user_dashboard_index_path %>"> 
+                      <i class="fa fa-user-plus"></i>
+                      <span>مستخدم جديد</span>
+                    </a>
                   </li>
-
+                  <%end%>
               </ul>
               <!-- sidebar menu end-->
           </div>

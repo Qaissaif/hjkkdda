@@ -24,10 +24,16 @@ Hadhada::Application.routes.draw do
        end
     end
 
+    resources :comment do
+      collection do
+        post :create_comment
+      end
+    end
 
     resources :dashboard do
        collection do
-         
+         get :add_user
+         post :create_user
        end
     end
 
@@ -54,9 +60,22 @@ Hadhada::Application.routes.draw do
        end
     end
 
+    resources :quote do
+       collection do
+       end
+    end
 
+    resources :planer do
+      collection do
+      end
+    end
+
+  match '/planer/download/:filename', :action => 'download', :via => [:get], :controller => 'planer'
   match '/:category/:article/:id', :action => 'show', :via => [:get], :controller => 'article'
 
+  match '*a', :to => 'application#routing', via: :get
+  get '/404', :to => 'application#routing', via: :get
+  get '/500', :to => 'application#server', via: :get
   # Example resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales

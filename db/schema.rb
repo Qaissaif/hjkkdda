@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160317140059) do
+ActiveRecord::Schema.define(version: 20160402145818) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 20160317140059) do
     t.integer  "parent_id"
   end
 
+  create_table "comments", force: true do |t|
+    t.text     "commentor"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "article_id"
+  end
+
+  add_index "comments", ["article_id"], name: "index_comments_on_article_id", using: :btree
+
   create_table "sounds", force: true do |t|
     t.text     "content"
     t.text     "title"
@@ -47,6 +57,7 @@ ActiveRecord::Schema.define(version: 20160317140059) do
     t.string   "encrypted_password"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "role"
   end
 
 end

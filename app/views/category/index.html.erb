@@ -1,13 +1,12 @@
 <div class="container">
-            <div class="row" style="margin-top:35px;">
-                <div class="col-sm-12 text-center">
-                    <h1 class="section-heading"><%= @category.name%></h1>
-                    <br/>
-                    <br/>
-                </div>
-            </div>
-            <%if params[:id].to_i==2%>
-            <div class="container">
+    <div class="row" style="margin-top:35px;">
+      <div class="col-sm-12 text-right">
+        <h1 class="section-heading"><%= @category.name%></h1>
+          <br/>
+          <br/>
+      </div>
+    </div>
+  <%if params[:id].to_i==2%>
 <div class="row">
               <%Category.all.each do |cat|%>
               <%if cat.parent_id!=nil%>
@@ -23,30 +22,28 @@
                   </div>
                   <%end%>
               <%end%>
-</div> 
-</div>
-</div>
-            
-            <%else%>
-        <% @articles.each do |art|%>
-        <div class="row">
-        <div class="col-sm-6 col-md-12">
-          <div class="col-md-4 pull-right">
-            <img src='<%="/images/#{art.id}.png" rescue " "%>' class="img-responsive" style="height:301px;">
-          </div>
-          <div class="col-md-8">
-                <h3 style="min-height: 45px;"><%=art.title.first(80)%></h3>
-                <p> <%=art.content.first(520).html_safe %>...</p>
-              <a href="/<%= art.category.name.split(' ').join('-')%>/<%= art.title.split(' ').join('-')%>/<%=art.id%>" class="btn btn-m btn-s btn-xs" role="button">اقراء المزيد</a>
+</div>         
+    <%else%>
+  <div class="row">
+    <% @articles.each do |art|%>
+      <div class="blog-post-item col-md-6 col-sm-6 pull-right">
+        <figure class="margin-bottom-20">
+          <img class="img-responsive" src='<%="/images/#{art.id}.png" rescue " "%>' alt="<%= art.title%>">
+        </figure>
+          <h2><a href="/<%= art.category.name.split(' ').join('-')%>/<%= art.title.split(' ').join('-')%>/<%=art.id%>"><%=art.title%></a></h2>
+            <i class="fa fa-clock-o"></i> 
+            <span class="font-lato"><%= art.created_at.strftime("%Y/%m/%d")%></span>
+            &nbsp;&nbsp;&nbsp;
+            <i class="fa fa-comment-o"></i> 
+            <span class="font-lato"><%= art.comments.count%></span>
+              <p><%=art.content.first(200).html_safe %>...</p>
+              <a href="/<%= art.category.name.split(' ').join('-')%>/<%= art.title.split(' ').join('-')%>/<%=art.id%>" class="btn btn-m btn-s btn-xs" 
+                role="button">اقراء المزيد</a>
             </div>
-    </div>
-  </div>
-  <hr/>
-  <br>
     <%end%>
+  </div>
     <%end%>
 </div>
-
 <style type="text/css">
 .btn-lg{padding: 4px 25px; margin-top: 7px;}
 .btn-m {
@@ -54,7 +51,7 @@
     border-style: solid;
     border-color: #222;
     padding: 10px 23px 10px;
-    margin-top: 0px;
+    margin-top: 8px;
     font-size: 16px;
     display: inline-block;
     text-align: center;
@@ -77,5 +74,28 @@
     background: #4ECDC4;
     border-color: #fff;
     color: #fff;
+}
+.blog-post-item {
+    display: block;
+    margin-bottom: 80px;
+    padding-bottom: 60px;
+    position: relative;
+}
+.margin-bottom-20 {
+    margin-bottom: 20px !important;
+
+}
+.img-responsive {
+    width: 500px;
+    height: 250px;
+    
+}
+.blog-post-item h2 {
+    letter-spacing: 0;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+.blog-post-item p{
+  padding-left: 10px;
 }
 </style>
