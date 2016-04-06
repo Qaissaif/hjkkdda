@@ -26,20 +26,32 @@
     <%else%>
   <div class="row">
     <% @articles.each do |art|%>
-      <div class="blog-post-item col-md-6 col-sm-6 pull-right">
-        <figure class="margin-bottom-20">
-          <img class="img-responsive" src='<%="/images/#{art.id}.png" rescue " "%>' alt="<%= art.title%>">
-        </figure>
-          <h2><a href="/<%= art.category.name.split(' ').join('-')%>/<%= art.title.split(' ').join('-')%>/<%=art.id%>"><%=art.title%></a></h2>
-            <i class="fa fa-clock-o"></i> 
-            <span class="font-lato"><%= art.created_at.strftime("%Y/%m/%d")%></span>
-            &nbsp;&nbsp;&nbsp;
-            <i class="fa fa-comment-o"></i> 
-            <span class="font-lato"><%= art.comments.count%></span>
-              <p><%=art.content.first(200).html_safe %>...</p>
-              <a href="/<%= art.category.name.split(' ').join('-')%>/<%= art.title.split(' ').join('-')%>/<%=art.id%>" class="btn btn-m btn-s btn-xs" 
+    <div class="col-md-4 inners">
+      <div class="latest_post_two_image">
+        <div class="photo-wrapper">
+          <div class="photo">
+        <a href="/<%= art.category.name.split(' ').join('-')%>/<%= art.title.split(' ').join('-')%>/<%=art.id%>">
+          <img width="359" height="290" src='<%="/images/#{art.id}.png" rescue " "%>'  class="attachment-portfolio_masonry_with_space size-portfolio_masonry_with_space wp-post-image" alt="<%= art.title%>" sizes="(max-width: 700px) 100vw, 700px">
+        </a>
+      </div>
+        </div>
+      </div>
+      <div class="latest_post_two_inner" style="background-color: #f7f7f7;">
+        <div class="latest_post_two_text">
+          <h4 class="latest_post_two_title">
+            <a href="/<%= art.category.name.split(' ').join('-')%>/<%= art.title.split(' ').join('-')%>/<%=art.id%>"><%=art.title.first(35)%></a>
+          </h4>
+          <p class="latest_post_two_excerpt"><%=art.content.first(200).html_safe %>...</p>
+          <a href="/<%= art.category.name.split(' ').join('-')%>/<%= art.title.split(' ').join('-')%>/<%=art.id%>" class="btn btn-m btn-s btn-xs" 
                 role="button">اقراء المزيد</a>
+        </div>
+        <div class="latest_post_two_info" style="border-color: #e0e0e0;">
+          <div class="latest_post_two_info_inner" style="color: #303030;">
+            <div class="post_info_author">
+              <span class="post_info_author_name"><i class="fa fa-comment-o"></i>&nbsp; <%= art.comments.count%></span>
             </div>
+            <div class="post_info_date"><i class="fa fa-clock-o"></i>&nbsp; <%= art.created_at.strftime("%Y/%m/%d")%></div>
+          </div></div></div></div>
     <%end%>
   </div>
     <%end%>
@@ -51,7 +63,7 @@
     border-style: solid;
     border-color: #222;
     padding: 10px 23px 10px;
-    margin-top: 8px;
+    margin-top: 1px;
     font-size: 16px;
     display: inline-block;
     text-align: center;
@@ -75,27 +87,78 @@
     border-color: #fff;
     color: #fff;
 }
-.blog-post-item {
+.latest_post_two_image{
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    width: 100%;
+}
+.latest_post_two_image a, .latest_post_two_image img {
     display: block;
-    margin-bottom: 80px;
-    padding-bottom: 60px;
+}
+.latest_post_two_inner {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    background-color: #fff;
+}
+.latest_post_two_text {
+    padding: 25px 33px 25px;
+    overflow: hidden;
+}
+.latest_post_two_info {
+    padding: 10px 50px 10px;
+    border-top: 1px solid #eaeaea;
+}
+.latest_post_two_info_inner {
+    position: relative;
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+.latest_post_two_info_inner>* {
+    position: relative;
+    display: table-cell;
+    vertical-align: top;
+    font-size: 12px;
+}
+.latest_post_two_info_inner .post_info_author_name {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 30px;
+}
+.latest_post_two_info_inner .post_info_date {
+    text-align: left;
+    line-height: 30px;
+}
+.inners{
+  margin-bottom: 30px;
+  float: right;
+}
+.latest_post_two_image:hover .photo-wrapper {
+    background-color: #C1EDFF;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     position: relative;
 }
-.margin-bottom-20 {
-    margin-bottom: 20px !important;
-
+.photo-wrapper {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    background-color: #C1EDFF;
+    -webkit-transition: background-color 0.4s;
+    -moz-transition: background-color 0.4s;
+    -o-transition: background-color 0.4s;
+    transition: background-color 0.4s;
 }
-.img-responsive {
-    width: 500px;
-    height: 250px;
-    
-}
-.blog-post-item h2 {
-    letter-spacing: 0;
-    font-size: 22px;
-    margin-bottom: 10px;
-}
-.blog-post-item p{
-  padding-left: 10px;
+.latest_post_two_image:hover .photo {
+    opacity: 10;
+    filter: alpha(opacity=4000);
+    opacity: 0.4;
+    filter: alpha(opacity=40);
 }
 </style>

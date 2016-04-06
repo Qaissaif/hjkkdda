@@ -86,17 +86,27 @@ a:hover,a:focus,.a:active {
 
 
 /*===== Navbar Custom ======*/
- @media (min-width: 768px){.navbar-header{float: right!important;}
+ @media (min-width: 768px){
+  .navbar-header{float: right!important;}
+  .is-sticky .logo {
+  margin-top: -18px;
+  margin-right: -30px;
+}
  .logo {
   font-weight: 700;
   font-size: 22px;
   color: #ffffff !important;
   letter-spacing: 1px;
-  margin-top: -10px;
+  margin-top: -16px;
   margin-right: -30px;
 }
 }
- @media (max-width: 768px){.navbar-brand{float: right!important;}
+ @media (max-width: 768px){
+  .navbar-brand{float: right!important;}
+  .is-sticky .logo {
+    margin-top: -23px;
+    margin-right: -10px;
+}
  .logo {
   font-weight: 700;
   font-size: 22px;
@@ -142,11 +152,6 @@ a:hover,a:focus,.a:active {
 .navbar-custom .nav>li>a:focus,.navbar-custom .nav>li>a:hover,.navbar-custom .nav>li.active>a {
   background-color: transparent;
   color: #27CEE2;
-}
-.is-sticky .logo {
-  color: #111 !important;
-  margin-top: -18px;
-  margin-right: -30px;
 }
 .navbar-toggle {
     color: #fff;

@@ -1,12 +1,9 @@
 class PlanerController < ApplicationController
 	
 	layout 'content_layout'
-	skip_before_filter :current_user
+	before_filter :authenticate, except: [:index,:download]
 
 	def index
-	end
-
-	def show
 	end
 
 	def download

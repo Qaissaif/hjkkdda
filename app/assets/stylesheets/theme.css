@@ -613,6 +613,38 @@ ul.sidebar-menu li a.active i {
   color: #55acee;
   opacity: 1;
 }
+.btn-instagram:hover{
+  background-color: transparent;
+  color: #BB8D32;
+  opacity: 1;
+}
 
 
 /*----------------end of footer-------------------*/
+
+/*---------quote------------*/
+#quote{
+    border: 6px solid transparent;
+    border-image: url(/assets/border-d-b.png) 6 repeat;
+    padding: 5px 5px;
+    text-align: center;
+    background: white;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 100%;
+    -moz-box-flex: 1;
+    -moz-flex: 1 1 100%;
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%;
+    margin-top: 50px;
+}
+}

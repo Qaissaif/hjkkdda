@@ -3,16 +3,16 @@
 =========================================================*/
 .camera_container {
   position: relative;
-  padding-bottom: 40%;
+  padding-bottom: 20px;
 }
 @media (max-width: 1087.12121212px) {
   .camera_container {
-    padding-bottom: 350px;
+    padding-bottom: 20px;
   }
 }
 .camera_wrap {
   display:block;
-  position: absolute;
+  position: relative;
   left: 0;
   top: 0px;
   width: 100%;
@@ -184,11 +184,12 @@
   .camera_container .bg_sec3{
     height: 100%;
     width: 80%;
-    padding-top: 3%;
+    padding-top: 10%;
+    margin-top: 10px;
   }
   .camera_container .bg_sec3:before{
-    height: 43px;
-    width: 42px;
+    height: 88px;
+    width: 52px;
     top: 69%;
   }
   .camera_container .bg_sec3 * + .btn{

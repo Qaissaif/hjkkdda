@@ -1,15 +1,15 @@
 <div class="container">
-	<div class="row" style="margin-top:35px;">
-		<div class="col-md-4">
+	<div class="row" style="margin-top:50px;">
+		<div class="col-md-4 col-sm-12">
 			<a class="fancybox" rel="gallery1" href="/assets/plan.png" title="جدول متابعة تطور الطفل">
 				<img src="/assets/plan.png" alt="" width="300" height="300"/>
 			</a>
 			<a class="btn btn-m btn-s" href="/planer/download/plan">
-				<i class="fa fa-download"></i> &nbsp; تحميل
+				<img src="/assets/pdf.svg" width="36" height="20" style="border:0;"> تحميل
 			</a>
 		</div>
 
-		<div class="col-md-4">
+		<div class="col-md-4 col-sm-12">
 			<a class="fancybox" rel="gallery1" href="/assets/plan2.png" title="جدول متابعة نوم الطفل">
 				<img src="/assets/plan2.png" alt="" width="300" height="300"/>
 			</a>
@@ -17,7 +17,7 @@
 				<i class="fa fa-download"></i> &nbsp; تحميل
 			</a>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-4 col-sm-12">
 			<a class="fancybox" rel="gallery1" href="/assets/plan3.png" title="جدول تحضير نشاطات الأسبوع">
 				<img src="/assets/plan3.png" alt="" width="300" height="300"/>
 			</a>
@@ -27,13 +27,39 @@
 		</div>
 	</div>
 </div>
+<div class="push"></div>
+<footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-left">
+                <span class="copyright text-muted">Copyright &copy; 
+                    <a href="#" target="_blank">
+                    <b>Hadhada</b>
+                    </a> 2016</span>
+                </div>
+                <div class="col-md-6 text-right">
+                  <div class="social-area pull-right">                
+                    <a class="btn btn-social btn-facebook btn-simple" href="#" target="_blank">
+                        <i class="fa fa-facebook-square"></i>
+                    </a>
+                    <a class="btn btn-social btn-twitter btn-simple" href="#" target="_blank">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a class="btn btn-social btn-instagram btn-simple" href="#" target="_blank">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                </div>
+                </div>
+            </div>
+        </div>
+</footer>
 
 <script type="text/javascript">
 $(document).ready(function() {
 	$(".fancybox").fancybox({
 		openEffect	: 'fade',
-		maxWidth :'750',
-		maxHeight : '600',
+		maxWidth :'650',
+		maxHeight : '550',
 		autoCenter : true,	
 		closeEffect	: 'fade'
 	});
@@ -44,7 +70,9 @@ $(document).ready(function() {
 .btn-m {
     border: 1px solid #777;
     padding: 10px 23px 10px;
-    margin-top: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 24%;
     font-size: 16px;
     display: inline-block;
     text-align: center;
@@ -71,37 +99,4 @@ $(document).ready(function() {
 img{
 	border: 1px solid rgba(153, 153, 153, 0.22);
 }
-/*.ghover {
-    position: absolute;
-    bottom: 47px;
-    left: 75px;
-    width: 300px;
-    height: 300px;
-    display: inline-block;
-    background-color: rgba(0,0,0,.81);
-    visibility: visible;
-    opacity: 0.6;
-    filter: alpha(opacity=0);
-    -webkit-transition: opacity .4s;
-    -moz-transition: opacity .4s;
-    -o-transition: opacity .4s;
-    -ms-transition: opacity .4s;
-    -webkit-transform: translateZ(0);
-    -moz-transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    z-index: 1000;
-}
-.ghover i {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -15px 0 0 -15px;
-    font-size: 30px;
-    color: #fff;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    display: inline-block;
-}*/
 </style>
