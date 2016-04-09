@@ -39,7 +39,13 @@
       <div class="latest_post_two_inner" style="background-color: #f7f7f7;">
         <div class="latest_post_two_text">
           <h4 class="latest_post_two_title">
-            <a href="/<%= art.category.name.split(' ').join('-')%>/<%= art.title.split(' ').join('-')%>/<%=art.id%>"><%=art.title.first(35)%></a>
+            <%if art.title.length > 35%>
+            <a href="/<%= art.category.name.split(' ').join('-')%>/<%= art.title.split(' ').join('-')%>/<%=art.id%>">
+              <%= art.title.first(35)%>..</a>
+            <%else%>
+              <a href="/<%= art.category.name.split(' ').join('-')%>/<%= art.title.split(' ').join('-')%>/<%=art.id%>">
+              <%=art.title%></a>
+            <%end%>
           </h4>
           <p class="latest_post_two_excerpt"><%=art.content.first(200).html_safe %>...</p>
           <a href="/<%= art.category.name.split(' ').join('-')%>/<%= art.title.split(' ').join('-')%>/<%=art.id%>" class="btn btn-m btn-s btn-xs" 

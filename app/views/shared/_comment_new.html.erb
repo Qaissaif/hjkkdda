@@ -1,4 +1,4 @@
-<%= form_for(:comment, :url => create_comment_comment_index_path, :remote => true) do |f| %>
+<%= form_for(:comment, :url => create_comment_comment_index_path, :remote => true,:html => {:id => "comment"}) do |f| %>
   <input type="hidden" value="<%=params[:id]%>" name="article[id]">
   <div class="field">
     <%= f.text_field :commentor,:class=>"form-control", :required=>"true", :placeholder=>"الإسم" %>
@@ -14,7 +14,6 @@
 <% end %>
 
 <script type="text/javascript">
-
 $('#submit').click(function (e) {
 
         // prevent the default click action
@@ -22,8 +21,23 @@ $('#submit').click(function (e) {
 
 
         var commentor=$('#comment_commentor').val();
+        id = $('#comment_commentor').attr('id');
+
         var content=$('#comment_content').val();
-        
+        id2 = $('#comment_content').attr('id');
+
+        if(commentor=="" || commentor==null){
+          var error = $('<span class="co">').addClass('error').text('يجب ادخال الإسم');
+          $('.co').remove();
+          error.insertAfter($('#'+id).parent());
+          return false;
+        }
+        if(content=="" || content==null){
+          var error = $('<span class="co2">').addClass('error').text('يجب ادخال التعليق');
+          $('.co2').remove();
+          error.insertAfter($('#'+id2).parent());
+          return false;
+        }
         // make an ajax call
         $.ajax({
           
@@ -54,7 +68,11 @@ $('#submit').click(function (e) {
             }
           }
         });
-
     });
-
+$("#comment_commentor").focus(function(){
+    $('.co').remove();
+  });
+$("#comment_content").focus(function(){
+    $('.co2').remove();
+  });
 </script>

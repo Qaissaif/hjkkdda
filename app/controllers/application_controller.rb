@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     render :file => "#{Rails.root}/public/403.html", :status => 403, :layout => false
   end
 
-  rescue_from Exception, with: :access_denied
+  # rescue_from Exception, with: :access_denied
   rescue_from ActionController::RoutingError, :with => :render_404
   rescue_from ::AbstractController::ActionNotFound, :with => :render_404
   rescue_from ActiveRecord::RecordNotFound, :with => :render_404

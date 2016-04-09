@@ -1,3 +1,4 @@
+<div class="fullscreen-bg"></div>
 <div class="container">
 	<div class="row" style="margin-top:50px;">
 		<div class="col-md-4 col-sm-12">
@@ -5,8 +6,8 @@
 				<img src="/assets/plan.png" alt="" width="300" height="300"/>
 			</a>
 			<a class="btn btn-m btn-s" href="/planer/download/plan">
-				<img src="/assets/pdf.svg" width="36" height="20" style="border:0;"> تحميل
-			</a>
+                <i class="fa fa-download"></i> &nbsp; تحميل
+            </a>
 		</div>
 
 		<div class="col-md-4 col-sm-12">
@@ -58,9 +59,9 @@
 $(document).ready(function() {
 	$(".fancybox").fancybox({
 		openEffect	: 'fade',
-		maxWidth :'650',
-		maxHeight : '550',
-		autoCenter : true,	
+		maxWidth :'750',
+		maxHeight : '650',
+		autoCenter : true,
 		closeEffect	: 'fade'
 	});
 });
@@ -98,5 +99,19 @@ $(document).ready(function() {
 }
 img{
 	border: 1px solid rgba(153, 153, 153, 0.22);
+}
+.fullscreen-bg {
+  background: url('/assets/ground.jpg');
+  background-repeat: round;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 56px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  
 }
 </style>
