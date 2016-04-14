@@ -1,11 +1,7 @@
 class MainController < ApplicationController
 
 	def index
-		@article1=Article.where(:category_id=>1).first
-		a=Category.where(:parent_id=>2)[0].articles.first
-		@article2=a
-		@article3=Article.where(:category_id=>3).first
-		@article4=Article.where(:category_id=>4).first
+		@articles=Article.first(4)
 	end
 
 	def sign

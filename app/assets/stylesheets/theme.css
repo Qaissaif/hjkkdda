@@ -625,7 +625,7 @@ ul.sidebar-menu li a.active i {
 /*---------quote------------*/
 #quote{
     border: 6px solid transparent;
-    border-image: url(/assets/border-d-b.png) 6 repeat;
+    /*border-image: url(/assets/border-d-b.png) 6 repeat;*/
     padding: 5px 5px;
     text-align: center;
     background: white;

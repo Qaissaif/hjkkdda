@@ -69,81 +69,29 @@
                     <h2 class="section-heading">آخر المقالات</h2>
                     <br/>
                     <br/>
+                </div>
             </div>
-        </div>
         <div class="row text-center">
+          <% @articles.each do |art|%>
         <div class="col-sm-6 col-md-3">
-          <div class="thumbnail pad-0" style="background-color:<%=@article4.color%>;border: 1px solid <%=@article4.color%>;">
-            <img src='<%="/images/#{@article4.id}.png" rescue " "%>' class="img-responsive">
+          <div class="thumbnail pad-0" style="background-color:<%=art.color%>;border: 1px solid <%=art.color%>;">
+            <img src='<%="/images/#{art.id}.png" rescue " "%>' class="img-responsive">
               <div class="caption" style="color:#fff;">
-                <%if @article4.title.length>30%>
-                <h3 style="min-height: 45px;"><%=@article4.title.first(28)%> ...</h3>
+                <%if art.title.length>30%>
+                <h3 style="min-height: 45px;"><%=art.title.first(28)%> ...</h3>
                 <%else%>
-                <h3 style="min-height: 45px;"><%=@article4.title.first(30)%></h3>
+                <h3 style="min-height: 45px;"><%=art.title.first(30)%></h3>
                 <%end%>
-                <%if @article4.content.length>33%>
-                <p> <%=@article4.content.first(30).html_safe %>...</p>
+                <%if art.content.length>33%>
+                <p> <%=art.content.first(30).html_safe %>...</p>
                 <%else%>
-                <p><%= @article4.content.html_safe %></p>
+                <p><%= art.content.html_safe %></p>
                 <%end%>
-              <a href="/<%= @article4.category.name.split(' ').join('-')%>/<%= @article4.title.split(' ').join('-')%>/<%=@article4.id%>" class="btn btn-md btn-secondary btn-xs" role="button">اقراء المزيد</a>
+              <a href="/<%= art.category.name.split(' ').join('-')%>/<%= art.title.split(' ').join('-')%>/<%=art.id%>" class="btn btn-md btn-secondary btn-xs" role="button">اقراء المزيد</a>
             </div>
           </div>
         </div>
-        <div class="col-sm-6 col-md-3">
-          <div class="thumbnail pad-0" style="background-color:<%=@article3.color%>;border: 1px solid <%=@article3.color%>;">
-            <img src='<%="/images/#{@article3.id}.png" rescue " "%>' class="img-responsive">
-              <div class="caption" style="color:#fff;">
-                <%if @article3.title.length>30%>
-                <h3 style="min-height: 45px;"><%=@article3.title.first(28)%> ...</h3>
-                <%else%>
-                <h3 style="min-height: 45px;"><%=@article3.title.first(30)%></h3>
-                <%end%>
-                <%if @article3.content.length>33%>
-                <p> <%=@article3.content.first(30).html_safe %>...</p>
-                <%else%>
-                <p><%= @article3.content.html_safe %></p>
-                <%end%>
-              <a href="/<%= @article3.category.name.split(' ').join('-')%>/<%= @article3.title.split(' ').join('-')%>/<%=@article3.id%>" class="btn btn-md btn-secondary btn-xs" role="button">اقراء المزيد</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-          <div class="thumbnail pad-0" style="background-color:<%=@article2.color%>;border: 1px solid <%=@article2.color%>;">
-            <img src='<%="/images/#{@article2.id}.png" rescue " "%>' class="img-responsive">
-              <div class="caption" style="color:#fff;">
-                <%if @article2.title.length>30%>
-                <h3 style="min-height: 45px;"><%=@article2.title.first(28)%> ...</h3>
-                <%else%>
-                <h3 style="min-height: 45px;"><%=@article2.title.first(30)%></h3>
-                <%end%>
-                <%if @article2.content.length>33%>
-                <p> <%=@article2.content.first(30).html_safe %>...</p>
-                <%else%>
-                <p><%= @article2.content.html_safe %></p>
-                <%end%>
-              <a href="/<%= @article2.category.name.split(' ').join('-')%>/<%= @article2.title.split(' ').join('-')%>/<%=@article2.id%>" class="btn btn-md btn-secondary btn-xs" role="button">اقراء المزيد</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-          <div class="thumbnail pad-0" style="background-color:<%=@article1.color%>;border: 1px solid <%=@article1.color%>;">
-            <img src='<%="/images/#{@article1.id}.png" rescue " "%>' class="img-responsive">
-              <div class="caption" style="color:#fff;">
-                <%if @article1.title.length>30%>
-                <h3 style="min-height: 45px;"><%=@article1.title.first(28)%> ...</h3>
-                <%else%>
-                <h3 style="min-height: 45px;"><%=@article1.title.first(30)%></h3>
-                <%end%>
-                <%if @article1.content.length>33%>
-                <p> <%=@article1.content.first(30).html_safe %>...</p>
-                <%else%>
-                <p><%= @article1.content.html_safe %></p>
-                <%end%>
-              <a href="/<%= @article1.category.name.split(' ').join('-')%>/<%= @article1.title.split(' ').join('-')%>/<%=@article1.id%>" class="btn btn-md btn-secondary btn-xs" role="button">اقراء المزيد</a>
-            </div>
-          </div>
-        </div>
+        <%end%>
             </div>
         </div>
     </section>
@@ -151,11 +99,9 @@
       <div class="container">
             <div class="row">
             <div class="col-sm-12 text-center">
-              <img src="/quotes/1.png" width="450" height="400" id="quote">
-            <div class="banner-footer smart_play">
-            <div class="banner-colore">
-            </div>
-        </div>
+              <div class="col-sm-6 text-center">
+                <img src="/quotes/1.png" width="450" height="400" id="quote">
+              </div>
             </div>
         </div>
       </div>
@@ -232,18 +178,6 @@
 </script>
 
 <style type="text/css">
-.banner-footer {
-    margin-top: 5px;
-    padding-bottom: 10px;
-    text-align: center;
-}
-.banner-footer .banner-colore {
-    width: 920px;
-    height: 123px;
-    margin: 0 auto;
-    background: url('/assets/banner_colore.png?1376488663') no-repeat;
-}
-
 #logo{
   position: relative;top: 3.2em;right: 8em;
 }
@@ -257,17 +191,17 @@
     margin-bottom: 15px;
     color: #fff;
     position: relative;
-    top: 17em;
+    top: 10em;
     z-index: 10;
     max-height: 192px;
     max-width: 188px;
 }
 
 
-/*#A23E8D mama tktob*/
-/*om jadeda #23BD3D*/
-/*trjmat #F32B2B*/
-/*rde3e #31708F*/
+/*#F3004E mama tktob*/
+/*om jadeda #BCF749*/
+/*trjmat rgb(245, 116, 4)*/
+/*rde3e #34BBAF*/
 
 @media (min-width: 768px) {
 .panel:hover{
@@ -283,6 +217,9 @@
   transform: scale(1.06);
 }
 #services .col-md-3 .thumbnail{min-height: 360px;max-height: 360px;}
+#services .col-md-3{
+  float: right;
+}
 }
 @media (max-width: 768px) {
   #family{display: none;} 
