@@ -92,16 +92,51 @@
           </div>
         </div>
         <%end%>
+        </div>
+        <div class="row text-center">
+          <div class="col-lg-3">
+            <img src="/assets/c1.png" width="200" height="350" class="pic1">
+          </div>
+          <% if @brain != nil%>
+       <div class="col-md-3" style="float:left;margin-left:10em;">
+          <div class="thumbnail pad-0" style="background-color:<%=@brain.color%>;border: 1px solid <%=@brain.color%>;">
+            <img src='<%="/images/#{@brain.id}.png" rescue " "%>' class="img-responsive">
+              <div class="caption" style="color:#fff;">
+                <%if @brain.title.length>30%>
+                <h3 style="min-height: 45px;"><%=@brain.title.first(28)%> ...</h3>
+                <%else%>
+                <h3 style="min-height: 45px;"><%=@brain.title.first(30)%></h3>
+                <%end%>
+                <%if @brain.content.length>33%>
+                <p> <%=@brain.content.first(30).html_safe %>...</p>
+                <%else%>
+                <p><%= @brain.content.html_safe %></p>
+                <%end%>
+              <a href="/<%= @brain.category.name.split(' ').join('-')%>/<%= @brain.title.split(' ').join('-')%>/<%=@brain.id%>" class="btn btn-md btn-secondary btn-xs" role="button">اقراء المزيد</a>
             </div>
+          </div>
+        </div>
+        <% end %>
+        <div class="col-lg-3">
+          <img src="/assets/ttt.png" width="250" height="350" class="pic2">
+        </div>
+        </div>
         </div>
     </section>
     <section>
       <div class="container">
-            <div class="row">
-            <div class="col-sm-12 text-center">
-              <div class="col-sm-6 text-center">
+        <div class="row">
+            <div class="col-sm-6 text-center">
+                <h2 class="qs">اقتباسات</h2>
                 <img src="/quotes/1.png" width="450" height="400" id="quote">
-              </div>
+            </div>
+            <div class="col-sm-6 text-center">
+              <a href="<%= sound_index_path%>">
+                <h2 class="hads">هدهدات</h2>
+                </a>
+                <a href="<%= sound_index_path%>">
+                <img src="/assets/music.jpg" width="450" height="400" id="hadhadat">
+                </a>
             </div>
         </div>
       </div>
@@ -178,6 +213,37 @@
 </script>
 
 <style type="text/css">
+.pic1{
+  position: relative;
+  left: 5em;
+  top: 3em;
+  transform: rotate(-8deg);
+}
+.pic2{
+  position: relative;
+  left: 5em;
+  top: 3em;
+  transform: rotate(8deg);
+}
+.qs{
+  margin-top: 80px;
+  font-size: 40px;
+  color: #DEBD83;
+  letter-spacing: 1.4px;
+}
+.hads{
+  position: absolute;
+  top: 9.5em;
+  right: 5.3em;
+  z-index: 200;
+  color: #FDDE46;
+  font-size: 40px;
+  letter-spacing: 1.4px;
+}
+#hadhadat{
+  position: relative;
+  top: 5em;
+}
 #logo{
   position: relative;top: 3.2em;right: 8em;
 }
@@ -222,7 +288,31 @@
 }
 }
 @media (max-width: 768px) {
-  #family{display: none;} 
+  #family{display: none;}
+  #cats{
+    position: relative;
+    display: block;
+    margin-bottom: 40px;
+  }
+  .panel {
+    box-shadow: 0 2px 0 rgba(0,0,0,0.075);
+    border-radius: 50%;
+    border: 0;
+    margin-bottom: 15px;
+    color: #fff;
+    position: relative;
+    top: 3em;
+    right: 5em;
+    z-index: 10;
+    max-height: 192px;
+    max-width: 188px;
+}
+#hadhadat{
+  left: 4em;
+}
+.hads{
+  right: 2.8em;
+} 
 }
 .panel>:last-child {
     border-bottom-left-radius: 0;
@@ -279,5 +369,6 @@
 .thumbnail>img {
     max-height: 180px;
     min-height: 180px;
+    min-width: 250px;
 }
 </style>

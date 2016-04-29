@@ -331,4 +331,10 @@ a:hover,a:focus,.a:active {
   .is-sticky .navbar-toggle {
     color: #fff;
   }
+  .home-wrapper {
+    padding: 95px 0px 20px 0px;
+}
+#home{
+  min-height: 1110px;
+}
 }

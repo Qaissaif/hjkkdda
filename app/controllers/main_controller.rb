@@ -1,7 +1,14 @@
 class MainController < ApplicationController
 
 	def index
-		@articles=Article.first(4)
+		arts=[]
+		Article.all.each do |art|
+			if art.category_id!=7 && arts.length < 4
+				arts<<art
+			end
+		end
+		@articles=arts
+		@brain=Article.where(:category_id=>7).first
 	end
 
 	def sign

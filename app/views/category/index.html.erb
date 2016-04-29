@@ -13,7 +13,7 @@
                   <div class="col-md-3 col-sm-6">
                       <div class="panel" style="background-color:<%=cat.color%>;">
                           <div class="panel-body text-center">
-                              <p class="text-uppercase mar-btm text-sm"><%=cat.name%></p>
+                              <p class="text-uppercase text-sm"><%=cat.name%></p>
                                 <i class="fa fa-users fa-5x "></i>
                                 <br><br>
                                 <a href="<%=category_index_path(:id=>cat.id)%>" class="btn btn-md btn-secondary">المزيد</a>
@@ -22,7 +22,29 @@
                   </div>
                   <%end%>
               <%end%>
-</div>         
+</div>
+<style type="text/css">
+.panel{
+    border: 6px solid #fff;
+    box-shadow: 0 0 0 7px #E0E49F;
+    min-height: 260px;
+}
+.panel-body p {
+  font-size: 26px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.panel-body i{
+  color: #fff;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.panel-body .btn{
+  padding: 8px 25px 8px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+</style>         
     <%else%>
   <div class="row">
     <% @articles.each do |art|%>
