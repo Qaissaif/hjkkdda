@@ -73,7 +73,7 @@
       <aside class="sidemenu-column" role="navigation" aria-label="manual Menu">
         <span class="sidemenu-nav-header text-capitalize"><%= @article.category.name%></span>
         <ul class="in-page-menu sidemenu-menu">
-         <% @article.category.articles.each do |arts| %>
+         <% @article.category.articles.first(10).each do |arts| %>
            <li class="sidemenu-menu__item">
            <a href="/<%= arts.category.name.split(' ').join('-')%>/<%= arts.title.split(' ').join('-')%>/<%=arts.id%>"><%=arts.title%></a>
            </li>
@@ -82,9 +82,9 @@
   </aside>
 </div>
 
-<div  class="pull-right col-md-3 col-sm-6">
-      <img src="/assets/back2.png" style="margin-top:11em;margin-right:1em;">
-      <img src="/assets/back3.png" style="margin-top:8em;">
+<div  class="pull-right col-md-3 col-sm-6 pictures">
+      <img src="/assets/back2.png" style="margin-top:5em;margin-right:1em;">
+      <img src="/assets/back3.png" style="margin-top:6em;">
 </div>
 
 </div>
@@ -156,6 +156,20 @@ $(".del-comment").bind('ajax:success', function(event, xhr, status) {
 </script>
 
 <style type="text/css">
+@media (max-width: 468px){
+.sidemenu-column {
+    margin-top: 29px;
+    padding-bottom: 15px;
+    margin-left: 35px;
+}
+.profile {
+    margin-right: 70px;
+    margin-top: 40px;
+}
+.pictures{
+  display: none;
+}
+}
 @media (min-width: 768px){
 .panel.arrow.right:before {
     right: -16px;
@@ -178,17 +192,19 @@ $(".del-comment").bind('ajax:success', function(event, xhr, status) {
     border-width: 15px;
 }
 .profile {
-    margin-top: 167px;
+    margin-top: 60px;
     margin-right: -30px;
     margin-left: 46px;
-
 }
+}
+.profile {
+    margin-top: 40px;
 }
 .profile {
     background-color: #fff;
     box-shadow: 0 2px 0 rgba(0,0,0,0.075);
     border: 1px solid #DAD7D7;
-    margin-bottom: 15px;
+    margin-bottom: 15px;  
 
 }
 .profile .profile-heading, .profile>:first-child {
@@ -295,7 +311,7 @@ main, .footer--main, .footer-bottom, .page-width {
     padding-top: 1.875em;
 }
 .page-block {
-    padding: 5.625em 0;
+    padding: 3.625em 0;
     border-color: #e5e5e5;
 }
 @media screen and (min-width: 61.875em){
@@ -305,6 +321,11 @@ main, .footer--main, .footer-bottom, .page-width {
 .grid-6 {
     width: 700px;
     margin-right: 30px;
+}
+.sidemenu-column {
+    margin-top: 50px;
+    padding-bottom: 15px;
+    margin-right: -25px;
 }
 }
 .page-width {
@@ -319,11 +340,6 @@ main, .footer--main, .footer-bottom, .page-width {
 .grid-item {
     float: left;
     position: relative;
-}
-.sidemenu-column {
-    margin-top: 50px;
-    padding-bottom: 15px;
-    margin-right: -25px;
 }
 .sidemenu-menu {
     margin: 0;

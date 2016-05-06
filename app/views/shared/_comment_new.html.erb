@@ -26,13 +26,13 @@ $('#submit').click(function (e) {
         var content=$('#comment_content').val();
         id2 = $('#comment_content').attr('id');
 
-        if(commentor=="" || commentor==null){
+        if(commentor=="" || commentor==null || commentor==undefined || commentor==" "){
           var error = $('<span class="co">').addClass('error').text('يجب ادخال الإسم');
           $('.co').remove();
           error.insertAfter($('#'+id).parent());
           return false;
         }
-        if(content=="" || content==null){
+        if(content=="" || content==null || commentor==undefined || commentor==" "){
           var error = $('<span class="co2">').addClass('error').text('يجب ادخال التعليق');
           $('.co2').remove();
           error.insertAfter($('#'+id2).parent());

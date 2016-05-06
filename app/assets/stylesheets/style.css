@@ -332,7 +332,7 @@ a:hover,a:focus,.a:active {
     color: #fff;
   }
   .home-wrapper {
-    padding: 95px 0px 20px 0px;
+    padding: 95px 0px 20px 20px;
 }
 #home{
   min-height: 1110px;

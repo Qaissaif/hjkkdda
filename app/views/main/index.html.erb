@@ -1,34 +1,3 @@
- <!-- Features Section -->
- <!--    <section id="features-flat" class="bg-light" style="visibility: hidden;">
-        <div class="container">
-             <div class="row">
-                <div class="col-sm-12 text-center">
-                    <h2 class="section-heading">الأبواب</h2>
-                    <br/>
-                    <br/>
-                </div>
-            </div>
-            <div class="row">
-              <%Category.all.each do |cat|%>
-              <%if cat.parent_id==nil%>
-                  <div class="col-md-3 col-sm-6">
-                      <div class="panel" style="background-color:<%=cat.color%>;">
-                          <div class="panel-body text-center">
-                              <p class="text-uppercase mar-btm text-sm"><%=cat.name%></p>
-                                <i class="fa fa-users fa-5x "></i>
-                                <br><br>
-                                <a href="<%=category_index_path(:id=>cat.id)%>" class="btn btn-md btn-secondary">المزيد</a>
-                          </div>
-                      </div>
-                  </div>
-                  <%end%>
-              <%end%>
-            </div>           
-        </div>
-    </section>
- -->
-
-
 <section class="camera_container">
         <div id="camera" class="camera_wrap center bg-general" style="display: block; height: 450px;">
           <div class="camera_fakehover">
@@ -36,8 +5,8 @@
             <div class="camera_target_content">
               <div class="cameraContents">
                 <div class="cameraContent">
-                  <div class="camera_caption" style="visibility: visible; opacity: 1;">
-                    <div>
+                <div class="camera_caption" style="visibility: visible; opacity: 1;">
+              <div>
 
               <div class="bg_sec3" style="visibility: hidden;">
                 <h2>
@@ -49,18 +18,13 @@
                   شركة البحث الشهيرة جوجل قامت مؤخراً بخطوة استثنائية، بإضافة خدمة الخريطة الشمسية، التي تحسب أشعة الشمس التي..
                 </p>
               </div>
-              
-              
-      
             </div></div>
           <div class="col-sm-6 col-md-6 pull-right" id="family">
                <!--  <img class="img-responsive"src="/assets/banner-1.png" style="position: relative;top: 13.4em;"> -->
       <img src="/assets/logo.png" width="370" height="370" style="visibility: hidden;" id="logo" >
                 </div>
           </div></div></div></div></div>
-
-    </section>
-
+</section>
 
 <section id="services" style="visibility: hidden;">
         <div class="container">
@@ -72,6 +36,7 @@
                 </div>
             </div>
         <div class="row text-center">
+          <%if @articles!=nil%>
           <% @articles.each do |art|%>
         <div class="col-sm-6 col-md-3">
           <div class="thumbnail pad-0" style="background-color:<%=art.color%>;border: 1px solid <%=art.color%>;">
@@ -92,13 +57,16 @@
           </div>
         </div>
         <%end%>
+        <%end%>
         </div>
         <div class="row text-center">
           <div class="col-lg-3">
             <img src="/assets/c1.png" width="200" height="350" class="pic1">
           </div>
           <% if @brain != nil%>
-       <div class="col-md-3" style="float:left;margin-left:10em;">
+       <div class="col-md-3" style="float:left;margin-left:10em;margin-top:3em;">
+        <h2 style="color:#636E82">النمو الدماغي</h2>
+        <br />
           <div class="thumbnail pad-0" style="background-color:<%=@brain.color%>;border: 1px solid <%=@brain.color%>;">
             <img src='<%="/images/#{@brain.id}.png" rescue " "%>' class="img-responsive">
               <div class="caption" style="color:#fff;">
@@ -141,6 +109,98 @@
         </div>
       </div>
     </section>
+
+
+    <div class="row showcase_row1">
+            <div class="col-sm-6 custom_showcase custom_showcase__1">
+                <div class="custom_showcase_wr maxheight showcase_bg" style="height: 469px;"><div class="box_inner">
+   
+                    <div class="inside_abs">
+                    
+                    <div class="inside">
+                        <h3>New Arrivals</h3>
+                        <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercita.</p>
+                        <a href="/products/air-jordan-baby-infant-3pcs-sets-bodysuit-layette-oneies" class="btn btn-big">Shop now!</a>
+                    </div>
+                    
+                    </div>
+                    
+
+                </div></div>
+            </div>
+        
+            <div class="col-sm-6 custom_showcase custom_showcase__2">
+                <div class="custom_showcase_wr maxheight " style="height: 469px;"><div class="box_inner">
+                <div class="showc_img_wr">
+                  <img src="/quotes/1.png" width="520" height="469" alt="لا يوجد ما هو أسوأ من الإهمال"></div>
+                </div></div>
+            </div>
+        
+    
+</div>
+<style type="text/css">
+.custom_showcase {
+    margin-top: 30px;
+    text-align: center;
+    overflow: hidden;
+}
+.custom_showcase__1 {
+    width: 41.6667%;
+}
+.custom_showcase__2 {
+    width: 58.3333%;
+}
+.custom_showcase .showcase_bg {
+    background: #f54c61;
+}
+.custom_showcase .custom_showcase_wr {
+    position: relative;
+    display: block;
+}
+.showcase_row1 {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.showcase_row1 * {
+    color: #ffffff;
+}
+.custom_showcase .inside_abs {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    -webkit-transform: translate(0%, -50%);
+    -moz-transform: translate(0%, -50%);
+    -ms-transform: translate(0%, -50%);
+    transform: translate(0%, -50%);
+}
+.custom_showcase .inside {
+    padding: 20px 30px 36px;
+}
+.showcase_row1 h3 {
+    margin-bottom: 10px;
+    font-size: 74px;
+    line-height: 0.86em;
+}
+.showcase_row1 p {
+    font-size: 13px;
+    margin-top: 0;
+}
+.custom_showcase p {
+    max-width: 440px;
+    margin: 0 auto;
+}
+.showcase_row1 .showc_img_wr {
+    background: #000;
+}
+.showcase_row1 img {
+    opacity: .8;
+}
+.custom_showcase.custom_showcase__2 h3 {
+    font-size: 94px;
+}
+
+</style>
     <div class="push"></div>
  <!-- Footer -->
     <footer id="footer">
