@@ -59,38 +59,104 @@
         <%end%>
         <%end%>
         </div>
-        <div class="row text-center">
-          <div class="col-lg-3">
-            <img src="/assets/c1.png" width="200" height="350" class="pic1">
-          </div>
-          <% if @brain != nil%>
-       <div class="col-md-3" style="float:left;margin-left:10em;margin-top:3em;">
-        <h2 style="color:#636E82">النمو الدماغي</h2>
-        <br />
-          <div class="thumbnail pad-0" style="background-color:<%=@brain.color%>;border: 1px solid <%=@brain.color%>;">
-            <img src='<%="/images/#{@brain.id}.png" rescue " "%>' class="img-responsive">
-              <div class="caption" style="color:#fff;">
-                <%if @brain.title.length>30%>
-                <h3 style="min-height: 45px;"><%=@brain.title.first(28)%> ...</h3>
-                <%else%>
-                <h3 style="min-height: 45px;"><%=@brain.title.first(30)%></h3>
-                <%end%>
-                <%if @brain.content.length>33%>
-                <p> <%=@brain.content.first(30).html_safe %>...</p>
-                <%else%>
-                <p><%= @brain.content.html_safe %></p>
-                <%end%>
-              <a href="/<%= @brain.category.name.split(' ').join('-')%>/<%= @brain.title.split(' ').join('-')%>/<%=@brain.id%>" class="btn btn-md btn-secondary btn-xs" role="button">اقراء المزيد</a>
-            </div>
-          </div>
-        </div>
-        <% end %>
-        <div class="col-lg-3">
-          <img src="/assets/ttt.png" width="250" height="350" class="pic2">
-        </div>
-        </div>
         </div>
     </section>
+    
+        <% if @brain != nil%>
+        <section class="bg-2">
+        <div class="container pad-bot">
+            <div class="row">
+                <div class="grid_12">
+                    <div class="w3">
+                      <%if @brain.title.length>30%>
+                          <div class="title-1"><%=@brain.title.first(28)%> ..</div>
+                      <%else%>
+                          <div class="title-1"><%=@brain.title.first(30)%></div>
+                      <%end%>
+                      <%if @brain.content.length>90%>
+                        <div class="text-2"><%=@brain.content.first(87).html_safe %>...</div>
+                      <%else%>
+                        <div class="text-2"><%= @brain.content.html_safe %></div>
+                      <%end%>
+                    <a href="/<%= @brain.category.name.split(' ').join('-')%>/<%= @brain.title.split(' ').join('-')%>/<%=@brain.id%>" class="btn btn-md btn-brain" role="button">اقراء المزيد</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </section>
+      <% end %>
+<style type="text/css">
+.bg-2 {
+    background: #ffffff url(/assets/bg-1.png) 100% bottom no-repeat;
+    color: #000000;
+    height: 425px;
+    background-position-x: 100%;
+    background-position-y: 62%;
+    background-size: 57%;
+    margin-top: 30px;
+}
+.bg-2 .pad-bot {
+    padding-bottom: 134px;
+}
+.grid_12 {
+    width: 1170px;
+}
+.w3 {
+    width: 64%;
+    float: left;
+}
+.bg-2 .title-1 {
+    color: #15c1e5;
+    padding-bottom: 30px;
+}
+.title-1 {
+    font-size: 60px;
+    line-height: 71px;
+    font-family: 'Bowlby One', cursive;
+    padding-top: 51px;
+}
+.bg-2 .text-2 {
+    width: 91%;
+}
+.text-2 {
+    font-size: 17px;
+    line-height: 26px;
+}
+.btn-brain{
+    color: #393030;
+    background: #FFFFFF;
+    border-color: #393030;
+    padding: 10px 15px 10px;
+}
+.btn-brain:hover, .btn-brain:active {
+    background: #15c1e5;
+    border-color: #fff;
+    color: #fff;
+}
+@media (max-width: 768px){
+.bg-2 {
+    background: #ffffff url(/assets/bg-1-1.png) right bottom no-repeat;
+}
+.bg-2 .pad-bot {
+    padding-bottom: 134px;
+}
+.grid_12 {
+    width: 100%;
+}
+.w3 {
+    width: 100%;
+    background: url(/assets/opac-1.png) 0 0 repeat;
+}
+.title-1 {
+    font-size: 50px;
+    line-height: 52px;
+}
+.btn-brain{
+    margin-right: 35%;
+    margin-bottom: 2%;
+}
+}
+</style>
     <section>
       <div class="container">
         <div class="row">
@@ -273,18 +339,6 @@
 </script>
 
 <style type="text/css">
-.pic1{
-  position: relative;
-  left: 5em;
-  top: 3em;
-  transform: rotate(-8deg);
-}
-.pic2{
-  position: relative;
-  left: 5em;
-  top: 3em;
-  transform: rotate(8deg);
-}
 .qs{
   margin-top: 80px;
   font-size: 40px;
