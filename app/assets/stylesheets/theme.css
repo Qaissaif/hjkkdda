@@ -627,9 +627,11 @@ ul.sidebar-menu li a.active i {
     border: 6px solid transparent;
     /*border-image: url(/assets/border-d-b.png) 6 repeat;*/
     padding: 5px 5px;
-    margin-top: 50px;
+    margin-top: 58px;
     position: relative;
     top: 0em;
     left: 0em;
+    width: 91%;
+    height: 85%;
 }
 }
