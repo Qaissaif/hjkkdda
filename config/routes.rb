@@ -36,7 +36,7 @@ Hadhada::Application.routes.draw do
          post :create_user
        end
     end
-
+get '/login', :to => 'main#sign', via: :get
     resources :main do
        collection do
          get :sign
@@ -76,6 +76,7 @@ Hadhada::Application.routes.draw do
   match '*a', :to => 'application#routing', via: :get
   get '/404', :to => 'application#routing', via: :get
   get '/500', :to => 'application#server', via: :get
+  
   # Example resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
