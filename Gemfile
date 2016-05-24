@@ -7,9 +7,10 @@ gem 'rails', '4.0.8'
 gem 'mysql2', '~>0.3.18'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.2'
 
 gem 'cancan'
+
+gem 'unicorn'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
