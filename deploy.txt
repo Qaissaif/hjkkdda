@@ -1,0 +1,32 @@
+cd ~/hadhada
+sudo service unicorn_hadhada stop
+sudo service nginx stop
+git pull origin master
+
+#here for assets if needed
+rake assets:precompile RAILS_ENV=production
+
+#here for db:migrate if needed
+
+rake db:migrate RAILS_ENV=production
+
+sudo service unicorn_hadhada start
+sudo service nginx start
+#FINISHED DEPLOY
+
+
+
+#FOR TOOLS
+
+
+#for console
+cd ~/hadhada
+rails c -e production
+
+#for log
+tail -f log/production.log
+
+
+#for syntax error on deployment 
+#check 
+tail -f shared/sockets.stderr.sock # or somthing like this i forgot the file name , kinda sleepy make sure its sub string of stderr
