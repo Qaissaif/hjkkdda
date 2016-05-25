@@ -136,21 +136,51 @@
 .camera_container .bg_sec2:before {
   background: #50d170;
 }
+@media (min-width: 1751px) {
+  .camera_container .bg_sec3{
+    -webkit-border-radius: 33% 34% 44% 35% / 43% 42% 41% 39%;
+    -moz-border-radius: 33% 34% 44% 35% / 43% 42% 41% 39%;
+    border-radius: 33% 34% 44% 35% / 43% 42% 41% 39%;
+    height: 380px;
+    width: 425px;
+    padding-top: 5%;
+  }
+  .camera_container .bg_sec3:before{
+    height: 118px;
+    width: 70px;
+  }
+  .camera_container .bg_sec3 p{
+    padding-left: 10%;
+    padding-right: 4%;
+    text-align: center;
+  }
+  .camera_container .bg_sec3 h2{
+    font-size: 28px;
+    line-height: 31px;
+    text-align: center;
+    color: #fff;
+  }
+  .camera_container .camera_caption {
+    right: 57%;
+    top: 10%;
+  }
+}
+
 @media (max-width: 1750px) {
   .camera_container .bg_sec3{
     -webkit-border-radius: 33% 34% 44% 35% / 43% 42% 41% 39%;
     -moz-border-radius: 33% 34% 44% 35% / 43% 42% 41% 39%;
     border-radius: 33% 34% 44% 35% / 43% 42% 41% 39%;
     height: 380px;
-    width: 418px;
+    width: 425px;
     padding-top: 5%;
   }
   .camera_container .bg_sec3:before{
-    height: 133px;
-    width: 79px;
+    height: 118px;
+    width: 70px;
   }
   .camera_container .bg_sec3 p{
-    padding-left: 4%;
+    padding-left: 10%;
     padding-right: 4%;
     text-align: center;
   }
@@ -224,7 +254,22 @@
     width: 100%;
     position: relative;
     right: 10%;
-    top: 25%;
+    top: 20%;
     bottom: 25%;
+  }
+  .camera_container .bg_sec3{
+    height: 400px;
+    width: 80%;
+    margin-top: 20px;
+    padding-bottom: 6%;
+    padding-top: 3%;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  .camera_container .bg_sec3 p{
+    padding-left: 4%;
+    padding-right: 4%;
+    text-align: center;
+    font-size: 13px;
   }
 }
