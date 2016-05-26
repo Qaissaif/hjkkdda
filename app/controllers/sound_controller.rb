@@ -1,6 +1,5 @@
 class SoundController < ApplicationController
 	before_filter :authenticate, except: [:index]
-	load_and_authorize_resource
 	skip_load_and_authorize_resource :only=> [:index]
 	layout "admin_layout"
 

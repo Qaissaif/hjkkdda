@@ -17,15 +17,14 @@ class ApplicationController < ActionController::Base
   rescue_from ActionController::UnknownController, with: :render_404
 
 
-   def access_denied
+  def access_denied
     flash[:alert]="يجب عليك تسجيل الدخول"
     redirect_to sign_main_index_path and return
   end
 
   def current_user
-  	return unless session[:user]
-    @user ||= User.find(session[:user]) 
-  	end
+  	return unless session[:user_id]
+    @user ||= User.find_by_id(session[:user_id]) 
   end
 
   def authenticate
@@ -37,7 +36,7 @@ class ApplicationController < ActionController::Base
 
   def clear_session
   	if action_name=="sign_out"
-  		session[:user]=nil
+  		session[:user_id]=nil
   	end
   end
 

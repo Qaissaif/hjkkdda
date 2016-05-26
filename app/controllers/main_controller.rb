@@ -21,9 +21,9 @@ class MainController < ApplicationController
 	end
 
 	def sign_in
-		@user=User.find(:username=>params[:user][:username].downcase,:encrypted_password=>Digest::MD5.hexdigest(params[:user][:password]+"hadhada"))
+		@user=User.where(:username=>params[:user][:username].downcase,:encrypted_password=>Digest::MD5.hexdigest(params[:user][:password]+"hadhada")).first
 		if @user
-			session[:user]=@user
+			session[:user_id]=@user.id
 			redirect_to dashboard_index_path
 		else
 			flash[:alert]="خطأ في اسم المستخدم او كلمة المرور"
@@ -62,7 +62,5 @@ class MainController < ApplicationController
 	    	else
 	    	  render :text => "available", :status => 202 and return
     		end
-    end
-
-
+    end  
 end
