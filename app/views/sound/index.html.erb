@@ -10,7 +10,6 @@
         <div class="row text-center">
         <% @sounds.each do |sound|%>
         <div class="col-sm-6 col-md-6" id="soundcloud">
-          <h3><%=sound.title%></h3>
           <%=sound.content.html_safe%>
         </div>
         <%end%>
@@ -45,20 +44,27 @@
 
 <style type="text/css">
 @media (min-width:768px){
-#soundcloud{float: right!important;}
+#soundcloud{float: right!important;margin-bottom: 10px;}
 }
 .fullscreen-bg {
-  background: url('/assets/ground.jpg');
+  background: url('/assets/09.jpg');
   background-repeat: round;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 56px;
+  bottom: -115px;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   
+}
+#footer{
+  position: absolute;
+  height: 5em;
+}
+.push{
+  margin-bottom: 3.3em;
 }
 </style>

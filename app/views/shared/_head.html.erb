@@ -21,7 +21,7 @@
               <%if cat.parent_id==nil%>
                   <div class="col-md-3 col-sm-6">
                       <div class="panel" style="background-color:<%=cat.color%>;">
-                          <div class="panel-body text-center">
+                          <div class="panel-body text-center" onclick="location.href='<%=category_index_path(:id=>cat.id)%>';" style="cursor:pointer;">
                               <p class="text-uppercase mar-btm text-sm"><%=cat.name%></p>
                                 <img src="/assets/<%=cat.id%>.png">
                                 <br>
