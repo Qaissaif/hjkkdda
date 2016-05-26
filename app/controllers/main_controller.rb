@@ -23,7 +23,7 @@ class MainController < ApplicationController
 	def sign_in
 		@user=User.find(:username=>params[:user][:username].downcase,:encrypted_password=>Digest::MD5.hexdigest(params[:user][:password]+"hadhada"))
 		if @user
-			session[:user_id]=@user.id
+			session[:user]=@user
 			redirect_to dashboard_index_path
 		else
 			flash[:alert]="خطأ في اسم المستخدم او كلمة المرور"

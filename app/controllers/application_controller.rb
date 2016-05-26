@@ -23,8 +23,8 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-  	return unless session[:user_id]
-    @user ||= User.find_by_id(session[:user_id]) 
+  	return unless session[:user]
+    @user ||= User.find(session[:user]) 
   	end
   end
 
@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
 
   def clear_session
   	if action_name=="sign_out"
-  		session[:user_id]=nil
+  		session[:user]=nil
   	end
   end
 
