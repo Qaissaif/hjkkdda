@@ -21,19 +21,18 @@ class MainController < ApplicationController
 	end
 
 	def sign_in
-		@user=User.where(:username=>params[:user][:username].downcase,:encrypted_password=>Digest::MD5.hexdigest(params[:user][:password]+"hadhada")).last
+		@user=User.find(:username=>params[:user][:username].downcase,:encrypted_password=>Digest::MD5.hexdigest(params[:user][:password]+"hadhada"))
 		if @user
-			session[:user]=@user
+			session[:user_id]=@user.id
 			redirect_to dashboard_index_path
 		else
 			flash[:alert]="خطأ في اسم المستخدم او كلمة المرور"
 			redirect_to sign_main_index_path and return
 		end
-
 	end
 
 	def sign_out
-		session[:user]=nil
+		clear_session
 		@user=nil
 		flash[:info]="تم الخروج"
 		redirect_to sign_main_index_path
