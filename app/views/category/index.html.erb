@@ -9,40 +9,40 @@
   <%if params[:id].to_i==2%>
 <div class="row" style="margin-bottom:50px;">
       <div class="col-md-3 col-md-offset-1 col-sm-6">
-          <div class="panel" style="background-color:<%=@cats0.color%>;min-height:450px;">
+          <div class="panel" style="background-color:<%=@cats0.color%>;min-height:564px;box-shadow: 0 0 0 7px <%=@cats0.color%>;">
             <div class="panel-body text-center">
               <p class="text-uppercase text-sm"><%=@cats0.name%></p>
-                <i class="fa fa-users fa-5x "></i>
+                <img src="/assets/couple.png" style="margin-right:-18px;margin-top:33px;margin-bottom:60px;"/>
                   <br><br>
               <a href="<%=category_index_path(:id=>@cats0.id)%>" class="btn btn-md btn-secondary">المزيد</a>
             </div>
           </div>
       </div>
       <div class="col-md-7 col-sm-6">
-          <div class="panel" style="background-color:<%=@cats1.color%>;min-height: 215px;">
+          <div class="panel" style="background-color:<%=@cats1.color%>;min-height: 215px;box-shadow: 0 0 0 7px <%=@cats1.color%>">
             <div class="panel-body text-center">
               <p class="text-uppercase text-sm"><%=@cats1.name%></p>
-                <i class="fa fa-users fa-5x "></i>
+                <img src="/assets/three.png"/>
                   <br><br>
               <a href="<%=category_index_path(:id=>@cats1.id)%>" class="btn btn-md btn-secondary">المزيد</a>
             </div>
           </div>
       </div>
       <div class="col-md-4 col-sm-6">
-          <div class="panel" style="background-color:<%=@cats2.color%>;min-height: 213px;">
+          <div class="panel" style="background-color:<%=@cats2.color%>;min-height: 213px;box-shadow: 0 0 0 7px <%=@cats2.color%>">
             <div class="panel-body text-center">
               <p class="text-uppercase text-sm"><%=@cats2.name%></p>
-                <i class="fa fa-users fa-5x "></i>
+                <img src="/assets/care.png"/>
                   <br><br>
               <a href="<%=category_index_path(:id=>@cats2.id)%>" class="btn btn-md btn-secondary">المزيد</a>
             </div>
           </div>
       </div>
       <div class="col-md-3 col-sm-6">
-          <div class="panel" style="background-color:<%=@cats3.color%>;min-height: 213px;">
+          <div class="panel" style="background-color:<%=@cats3.color%>;min-height: 213px;box-shadow: 0 0 0 7px <%=@cats2.color%>">
             <div class="panel-body text-center">
               <p class="text-uppercase text-sm"><%=@cats3.name%></p>
-                <i class="fa fa-users fa-5x "></i>
+                <img src="/assets/food.png"/>
                   <br><br>
               <a href="<%=category_index_path(:id=>@cats3.id)%>" class="btn btn-md btn-secondary">المزيد</a>
             </div>
@@ -52,7 +52,6 @@
 <style type="text/css">
 .panel{
     border: 6px solid #fff;
-    box-shadow: 0 0 0 7px #E0E49F;
     min-height: 260px;
 }
 .panel-body p {
