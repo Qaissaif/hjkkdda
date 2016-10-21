@@ -1,17 +1,22 @@
 cd
-sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev
-
-git clone https://github.com/sstephenson/rbenv.git .rbenv
+sudo apt-get install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-
-git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
-rbenv install -v 2.1.2
-rbenv global 2.2.2
+type rbenv
+
+
+git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+rbenv install -l
+rbenv install 2.1.2
+rbenv global 2.1.2
+
+
 gem install bundler
-gem install rails --version=4.0.8
+gem install rails -v 4.0.8
+
+rbenv rehash
 
 sudo add-apt-repository ppa:chris-lea/node.js
 sudo apt-get install nodejs
