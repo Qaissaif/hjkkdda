@@ -21,7 +21,7 @@ rbenv rehash
 sudo add-apt-repository ppa:chris-lea/node.js
 sudo apt-get install nodejs
 
-sudo apt-get install mysql-server-5.6 mysql-client-5.6
+sudo apt-get install mysql-server
 sudo service mysql restart
 cd ~/hadhada
 bundle install
