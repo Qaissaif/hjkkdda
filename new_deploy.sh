@@ -1,4 +1,3 @@
-cd ~ && git clone git@github.com:Qaissaif/hjkkdda.git hadhada
 sudo apt-get install mysql-server
 sudo service mysql restart
 bundle install
