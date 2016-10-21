@@ -9,9 +9,10 @@ RAILS_ENV=production rake assets:precompile
 
 mkdir -p shared/pids shared/sockets shared/log
 cp /unicorn_hadhada && /etc/init.d/unicorn_hadhada
-sudo update-rc.d unicorn_hadhada defaults
 
 chmod 755 /etc/init.d/unicorn_hadhada
+sudo update-rc.d unicorn_hadhada defaults
+
 sudo apt-get install nginx
 sudo cp /nginx-conf /etc/nginx/sites-available/default
 
