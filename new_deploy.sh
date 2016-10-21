@@ -18,6 +18,7 @@ sudo apt-get install nodejs
 
 sudo apt-get install mysql-server
 sudo service mysql restart
+cd ~/hadhada
 bundle install
 
 RAILS_ENV=production rake db:create
