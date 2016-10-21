@@ -9,19 +9,19 @@ type rbenv
 
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 rbenv install -l
-rbenv install 2.1.2
+rbenv install 2.1.2 --verbose
 rbenv global 2.1.2
 
 
-gem install bundler
-gem install rails -v 4.0.8
+gem install bundler -v 1.7.4
+gem install rails -v 4.0.8 --no-ri --no-rdoc
 
 rbenv rehash
 
 sudo add-apt-repository ppa:chris-lea/node.js
 sudo apt-get install nodejs
 
-sudo apt-get install mysql-server
+sudo apt-get install mysql-server-5.6 mysql-client-5.6
 sudo service mysql restart
 cd ~/hadhada
 bundle install
