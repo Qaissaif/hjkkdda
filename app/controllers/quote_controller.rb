@@ -8,7 +8,7 @@ class QuoteController < ApplicationController
 
   	def create
     	tmp = params[:quote][:icon].tempfile
-    	file = File.join("public/quotes","1.png")
+    	file = File.join("public/quotes","quote.png")
     	FileUtils.cp tmp.path, file
     	if file
 			redirect_to dashboard_index_path,:flash => { :success => "تمت اضافة الصورة" } and return
