@@ -10,6 +10,7 @@ class QuoteController < ApplicationController
     	tmp = params[:quote][:icon].tempfile
     	file = File.join("public/quotes","quote.png")
     	FileUtils.cp tmp.path, file
+    	FileUtils.chmod 775, file
     	if file
 			redirect_to dashboard_index_path,:flash => { :success => "تمت اضافة الصورة" } and return
 		else
