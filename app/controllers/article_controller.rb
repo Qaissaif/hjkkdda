@@ -75,6 +75,7 @@ class ArticleController < ApplicationController
 		tmp =params[:article][:icon].tempfile
     	file = File.join("public/images/","#{article.id}.png")
     	FileUtils.cp tmp.path, file
+    	FileUtils.chmod 775, file
 		# if post.content_type=="image/jpeg"
 		# File.write(File.expand_path("public/images/#{article.id}.jpg"),f.read)
 		# article.icon="public/images/#{article.id}.jpg"
